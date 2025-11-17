@@ -4,13 +4,17 @@
 
 class Block {
         public:
-                unsigned char prevBlockHash[32];
+                std::string prevBlockHash;
                 time_t timestamp;
-                int nonce;
-                unsigned char thisBlockHash[32];
+                long long nonce;
+                std::string thisBlockHash;
                 std::string MerkleRoot;
                 std::vector<std::string> transactions;
 
-                unsigned char * calculateHash();
+		Block(std::string prevBlockHash);
+		
+		std::string calculateHash();
+		void mineBlock();
+
 };
 
