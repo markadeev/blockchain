@@ -33,7 +33,7 @@ std::string Block::calculateHash(){
 	
 }
 void Block::mineBlock(){
-	int difficulty = 4;
+	int difficulty = 5;
 	nonce = 0;
 	while (thisBlockHash.substr(0, difficulty) != std::string(difficulty, '0')){
 		nonce++;
