@@ -10,8 +10,6 @@ public:
 
 	std::string serializeTransaction();
 
-        void signTransaction(EVP_PKEY* pkey);
-
 	bool verifyTransaction(const std::string& publicKeyPEM);
 
 };

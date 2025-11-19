@@ -2,7 +2,6 @@
 #include "block.h"
 #include "blockchain.h"
 #include "wallet.h"
-#include "transaction.h"
 
 int main(){
 /*
@@ -25,20 +24,18 @@ int main(){
 
 	Wallet wallet1;
 	wallet1.generateKeys();
-	wallet1.getPublicKey();
-	std::cout << wallet1.publicKey << std::endl;
+	std::cout << "Wallet 1 public Key: \n" << wallet1.publicKey << std::endl;
 
 	Transaction tx1;
-	tx1.signTransaction(wallet1.getPrivateKey());
-	std::cout << "Transaction valid?: " <<  tx1.verifyTransaction(wallet1.publicKey) << std::endl;
+	wallet1.signTransaction(tx1);
+	std::cout << "Transaction 1 valid: " <<  tx1.verifyTransaction(wallet1.publicKey) << std::endl;
 
 	Wallet wallet2;
 	wallet2.generateKeys();
-	wallet2.getPublicKey();
 
 	Transaction tx2;
-	tx2.signTransaction(wallet2.getPrivateKey());
-	std::cout << "Transaction2 valid?: " << tx2.verifyTransaction(wallet2.publicKey) << std::endl;
+	wallet2.signTransaction(tx2);
+	std::cout << "Transaction 2 valid: " << tx2.verifyTransaction(wallet2.publicKey) << std::endl;
 
         return 0;
 }
