@@ -26,3 +26,6 @@ void Wallet::printPrivateKey(){
 	std::cout << std::endl;
 	BIO_free(bio);
 }
+EVP_PKEY* Wallet::getPrivateKey(){
+	return pkey;
+}

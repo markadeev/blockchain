@@ -9,6 +9,7 @@ public:
         void generateKeys();
         void getPublicKey();
         void printPrivateKey();
+	EVP_PKEY* getPrivateKey();
 
 private:
         EVP_PKEY* pkey;
