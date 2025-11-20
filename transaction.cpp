@@ -10,11 +10,16 @@
 
 std::string Transaction::serializeTransaction(){
 	std::stringstream ss;
-	ss << payer << payee << amount;
+	for (TxInput txin : inputs){
+		ss << txin.prevTxId << txin.index << txin.signature << txin.publicKey;
+	}
+	for (TxOutput txout : outputs){
+		ss << txout.amount << txout.publicKeyHash;
+	}
 	return ss.str();
 }
 
-bool Transaction::verifyTransaction(const std::string& publicKeyPEM){
+bool Transaction::verifyTxInput(const std::string& publicKeyPEM){
 	std::vector<unsigned char> sig;
 	sig.reserve(signature.size()/2);
 	
@@ -38,4 +43,10 @@ bool Transaction::verifyTransaction(const std::string& publicKeyPEM){
 	EVP_PKEY_free(pubkey);
 	
 	return ok == 1;
+}
+bool Transaction::verifyTransaction(const std::string& publicKeyPEM){
+	for (TxInput txin : inputs){
+		if (verifyTxInput(publicKeyPEM) != 1) return false;
+	}
+	return true;
 }
