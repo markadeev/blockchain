@@ -6,6 +6,8 @@ struct TxInput{
 	int index;
 	std::string signature;
 	std::string publicKey;
+
+	bool verifyTxInput(const std::string& publicKeyPEM, std::string data);
 };
 struct TxOutput{
 	int amount;
@@ -17,12 +19,11 @@ public:
 	std::string TxId;
         std::vector<TxInput> inputs;
         std::vector<TxOutput> outputs;
-        std::string signature;
 
 	std::string serializeTransaction();
 
-	bool verifyTxInput(const std::string& publicKeyPEM);
 	bool verifyTransaction(const std::string& publicKeyPEM);
+	void makeTxId();
 
 };
 

@@ -55,7 +55,7 @@ void Wallet::signTransaction(Transaction& tx){
         for (auto c : sig){
                 ss << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(c);
         }
-	for (TxInput txin : tx.inputs){
+	for (TxInput& txin : tx.inputs){
 		txin.signature = ss.str();
 	}
 }

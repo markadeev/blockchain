@@ -11,7 +11,7 @@
 std::string Transaction::serializeTransaction(){
 	std::stringstream ss;
 	for (TxInput txin : inputs){
-		ss << txin.prevTxId << txin.index << txin.signature << txin.publicKey;
+		ss << txin.prevTxId << txin.index << txin.publicKey;
 	}
 	for (TxOutput txout : outputs){
 		ss << txout.amount << txout.publicKeyHash;
@@ -19,20 +19,23 @@ std::string Transaction::serializeTransaction(){
 	return ss.str();
 }
 
-bool Transaction::verifyTxInput(const std::string& publicKeyPEM){
+bool TxInput::verifyTxInput(const std::string& publicKeyPEM, std::string data){
 	std::vector<unsigned char> sig;
 	sig.reserve(signature.size()/2);
 	
 	for (size_t i = 0; i < signature.size(); i += 2){
-		unsigned char b = std::stoi(signature.substr(i, 2), nullptr, 16);
-		sig.push_back(b);
+		unsigned int byte;
+		std::stringstream ss;
+		ss << std::hex << signature.substr(i, 2);
+		ss >> byte;
+		sig.push_back(static_cast<unsigned char>(byte));
+
 	}
 	
 	BIO* bio = BIO_new_mem_buf(publicKeyPEM.data(), publicKeyPEM.size());
 	EVP_PKEY* pubkey = PEM_read_bio_PUBKEY(bio, nullptr, nullptr, nullptr);
 	BIO_free(bio);
 
-	std::string data = serializeTransaction();
 	EVP_MD_CTX* ctx = EVP_MD_CTX_new();
 
 	EVP_DigestVerifyInit(ctx, nullptr, EVP_sha256(), nullptr, pubkey);
@@ -45,8 +48,24 @@ bool Transaction::verifyTxInput(const std::string& publicKeyPEM){
 	return ok == 1;
 }
 bool Transaction::verifyTransaction(const std::string& publicKeyPEM){
-	for (TxInput txin : inputs){
-		if (verifyTxInput(publicKeyPEM) != 1) return false;
+	std::string data = serializeTransaction();
+	for (TxInput& txin : inputs){
+		if (txin.verifyTxInput(publicKeyPEM, data) != 1) return false;
 	}
 	return true;
+}
+void Transaction::makeTxId(){
+	std::string data = serializeTransaction();
+
+	unsigned char hash1[32];
+        SHA256(reinterpret_cast<const unsigned char *>(data.c_str()), data.size(), hash1);
+
+	unsigned char hash2[32];
+        SHA256(hash1, 32, hash2);
+
+        std::stringstream os;
+        for (int i = 0; i < 32; i++){
+                os << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(hash2[i]);
+        }
+	TxId = os.str();
 }

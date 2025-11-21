@@ -4,38 +4,32 @@
 #include "wallet.h"
 
 int main(){
-/*
-	Blockchain testcoin;
-	
-	testcoin.createGenesisBlock();
-	testcoin.getLatestBlock().mineBlock();
-	std::cout << testcoin.getLatestBlock().nonce << std::endl;
-	std::cout << testcoin.getLatestBlock().thisBlockHash << std::endl;
-	std::cout << std::ctime(&testcoin.getLatestBlock().timestamp) << std::endl;
-	
-	Block block2(testcoin.getLatestBlock().thisBlockHash);
-	block2.mineBlock();
-	testcoin.addBlock(block2);
 
-	std::cout << testcoin.getLatestBlock().nonce << std::endl;
-	std::cout << testcoin.getLatestBlock().thisBlockHash << std::endl;
-	std::cout << std::ctime(&testcoin.getLatestBlock().timestamp) << std::endl;
-*/
+	Wallet wallet;
+	wallet.generateKeys();
 
-	Wallet wallet1;
-	wallet1.generateKeys();
-	std::cout << "Wallet 1 public Key: \n" << wallet1.publicKey << std::endl;
+	TxInput tin;
+	tin.prevTxId = "s0as0df0asd0f";
+	tin.index = 0;
+	tin.publicKey = wallet.publicKey;
 
-	Transaction tx1;
-	wallet1.signTransaction(tx1);
-	std::cout << "Transaction 1 valid: " <<  tx1.verifyTransaction(wallet1.publicKey) << std::endl;
+	TxOutput tout;
+	tout.amount = 50;
 
-	Wallet wallet2;
-	wallet2.generateKeys();
+	Transaction tx;
+	tx.inputs.push_back(tin);
+	tx.outputs.push_back(tout);
 
-	Transaction tx2;
-	wallet2.signTransaction(tx2);
-	std::cout << "Transaction 2 valid: " << tx2.verifyTransaction(wallet2.publicKey) << std::endl;
+	wallet.signTransaction(tx);
+	for (auto tin : tx.inputs){
+		std::cout << "Signature: " << tin.signature << std::endl;
+	}
+
+	tx.makeTxId();
+	std::cout << "TxId: " << tx.TxId << std::endl;
+
+	tx.verifyTransaction(wallet.publicKey);
+	std::cout << "Transaction valid: " << tx.verifyTransaction(wallet.publicKey) << std::endl;
 
         return 0;
 }
