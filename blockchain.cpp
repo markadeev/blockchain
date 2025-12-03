@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "block.h"
+//#include "block.h"
 #include "blockchain.h"
 
 void Blockchain::createGenesisBlock(){

@@ -5,6 +5,16 @@
 #include "block.h"
 
 // constructor
+Block::Block()
+	:prevBlockHash(""),
+	timestamp(std::time(nullptr)),
+	nonce(0),
+	MerkleRoot(""),
+	transactions({})
+{
+	//optional mineBlock function
+}
+
 Block::Block(std::string prevBlockHash)
 	:prevBlockHash(prevBlockHash),
 	timestamp(std::time(nullptr)),

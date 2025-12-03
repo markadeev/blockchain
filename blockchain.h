@@ -1,4 +1,5 @@
 #include <vector>
+#include "block.h"
 
 class Blockchain {
         public:

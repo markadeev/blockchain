@@ -1,17 +1,20 @@
+#pragma once
 #include <string>
+#include <vector>
 #include <openssl/sha.h>
 
 struct TxInput{
 	std::string prevTxId;
-	int index;
+	int prevTxIndex;
+	// use P2PK, add P2PKH later
+	// in P2PK, the scriptsig unlocking script has only the publicKey
 	std::string signature;
-	std::string publicKey;
-
 	bool verifyTxInput(const std::string& publicKeyPEM, std::string data);
 };
 struct TxOutput{
+	int index;
 	int amount;
-	std::string publicKeyHash;
+	std::string publicKey;
 };
 
 class Transaction{

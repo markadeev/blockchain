@@ -3,7 +3,7 @@
 #include <openssl/sha.h>
 #include <openssl/pem.h>
 #include <openssl/evp.h>
-#include <vector>
+//#include <vector>
 #include <iostream>
 #include <iomanip>
 #include "transaction.h"
@@ -11,10 +11,10 @@
 std::string Transaction::serializeTransaction(){
 	std::stringstream ss;
 	for (TxInput txin : inputs){
-		ss << txin.prevTxId << txin.index << txin.publicKey;
+		ss << txin.prevTxId << " | " << txin.prevTxIndex << " | " ;
 	}
 	for (TxOutput txout : outputs){
-		ss << txout.amount << txout.publicKeyHash;
+		ss << txout.amount << " | " << txout.publicKey << " | ";
 	}
 	return ss.str();
 }

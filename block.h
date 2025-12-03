@@ -1,3 +1,4 @@
+#pragma once
 #include <ctime>
 #include <string>
 #include <vector>
@@ -11,6 +12,7 @@ class Block {
                 std::string MerkleRoot;
                 std::vector<std::string> transactions;
 
+		Block();
 		Block(std::string prevBlockHash);
 		
 		std::string calculateHash();
