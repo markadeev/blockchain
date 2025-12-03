@@ -4,6 +4,7 @@
 #include "blockchain.h"
 #include "wallet.h"
 #include "node.h"
+#include "miner.h"
 
 int main(){
 	std::unordered_map<std::string, std::unordered_map<int, TxOutput>> utxoset;
@@ -65,6 +66,14 @@ int main(){
 	for (Transaction tx : node1.mempool){
 		std::cout << "Mempool Transaction ID: " << tx.TxId << std::endl;
 	}
+
+	Miner miner1;
+	miner1.addToMempool(TestTransaction);
+	Block prevBlock;
+	miner1.chain.push_back(prevBlock);
+	Block block = miner1.buildBlock();
+	block = miner1.mineBlock(block);
+	std::cout << "miner 1 mined block: " << block.serializeBlock() << std::endl;
 
         return 0;
 }

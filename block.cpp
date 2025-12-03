@@ -24,16 +24,21 @@ Block::Block(std::string prevBlockHash)
 {
 	//optional mineBlock function
 }
+std::string Block::serializeBlock(){
+	std::stringstream ss;
+	ss << prevBlockHash << " | " << timestamp << " | " << nonce << " | ";
+	for (Transaction tx : transactions){
+		ss << tx.serializeTransaction();
+	}
+	return ss.str();
+}
 
 std::string Block::calculateHash(){
-	std::stringstream ss;
-	ss << prevBlockHash << timestamp << nonce;
-	for (auto transaction : transactions){
-		ss << transaction;
-	}
+
+	std::string blockstring = serializeBlock();
 
 	unsigned char hash[32];
-	SHA256(reinterpret_cast<const unsigned char *>((ss.str()).c_str()), ss.str().size(), hash);
+	SHA256(reinterpret_cast<const unsigned char *>(blockstring.c_str()), blockstring.size(), hash);
 
 	std::stringstream os;
 	for (int i = 0; i < 32; i++){

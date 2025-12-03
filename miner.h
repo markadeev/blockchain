@@ -3,8 +3,9 @@
 #include "block.h"
 
 class Miner: public Node {
+public:
 
-	Block createBlock();
-	Block mineBlock();
+	Block buildBlock();
+	Block mineBlock(Block& block);
 
 };

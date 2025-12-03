@@ -18,4 +18,12 @@ void Node::addToMempool(Transaction &tx){
 	mempool.push_back(tx);
 }
 
+bool Node::verifyBlock(Block& block){
+	// change
+	return true;
+}
+void Node::addBlockToChain(Block& block){
+	chain.push_back(block);
+}
+
 

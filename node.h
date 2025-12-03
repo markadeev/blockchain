@@ -13,6 +13,7 @@ public:
 	void receiveTransaction();
 	bool verifyTransaction(Transaction &tx);
 	void addToMempool(Transaction &tx);
-	void verifyBlock();
+	bool verifyBlock(Block& block);
+	void addBlockToChain(Block& block);
 
 };
