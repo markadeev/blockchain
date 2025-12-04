@@ -1,5 +1,6 @@
 #pragma once
 #include <unordered_map>
+#include <unordered_set>
 
 #include "block.h"
 #include "transaction.h"
@@ -9,10 +10,19 @@ public:
 	std::vector<Block> chain;
 	std::vector<Transaction> mempool;
 	std::unordered_map<std::string, std::unordered_map<int, TxOutput>> utxoset;
-	
-	void receiveTransaction();
+	std::vector<Node*> peers;	
+	std::unordered_set<std::string> seenTxSet;
+	std::unordered_set<std::string> seenBlockSet;
+
 	bool verifyTransaction(Transaction &tx);
 	void addToMempool(Transaction &tx);
+	
+	void broadcastTransaction(Transaction& tx);
+	void receiveTransaction(Transaction& tx);
+
+	void broadcastBlock();
+	void receiveBlock();
+
 	bool verifyBlock(Block& block);
 	void addBlockToChain(Block& block);
 
