@@ -3,20 +3,23 @@
 Block Miner::buildBlock(){
 	Block block;
 	block.prevBlockHash = chain.back().calculateHash();
-	int n = 0;
-	for (Transaction tx : mempool){
-		if (n == 10) break;
-		block.transactions.push_back(tx);
-	}	
+	block.MerkleRoot = block.calculateMerkleRoot();
+	int blockTransactionSize = 5;
+
+	for (int i = 0; i < blockTransactionSize && i < mempool.size(); i++){
+		block.transactions.push_back(mempool[i]);
+	}
+
 	return block;
 }
 Block Miner::mineBlock(Block& block){
 
 	int difficulty = 4;
+	std::string thisBlockHash = block.calculateHash();
 
-	while (block.thisBlockHash.substr(0, difficulty) != std::string(difficulty, '0')){
+	while (thisBlockHash.substr(0, difficulty) != std::string(difficulty, '0')){
 		block.nonce++;
-		block.thisBlockHash = block.calculateHash();
+		thisBlockHash = block.calculateHash();
 	}
 	return block;
 }

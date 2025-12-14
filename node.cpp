@@ -40,15 +40,38 @@ void Node::broadcastTransaction(Transaction& tx){
 void Node::receiveTransaction(Transaction& tx){
 	if (seenTxSet.count(tx.TxId)) return;
 	if (verifyTransaction(tx)){
-	//if (true){
 		seenTxSet.insert(tx.TxId);
 		mempool.push_back(tx);
 		broadcastTransaction(tx);
 	}
 }
 
+void Node::receiveBlock(Block& block){
+	if (seenBlockSet.count(block.calculateHash())) return;
+	if (verifyBlock(block)){
+		seenBlockSet.insert(block.calculateHash());
+		addBlockToChain(block);
+		broadcastBlock(block);
+	}
+		
+}
+void Node::broadcastBlock(Block& block){
+	for (Node* peer : peers){
+		peer->receiveBlock(block);
+	}
+}
 bool Node::verifyBlock(Block& block){
-	// change
+	if (block.prevBlockHash != chain.back().calculateHash()) return false;
+
+	std::string thisBlockHash = block.calculateHash();
+	if (thisBlockHash.substr(0, 4) != std::string(4, '0')) return false;
+
+	if (block.timestamp < chain.back().timestamp) return false;
+
+	for (Transaction& tx : block.transactions){
+		if (!verifyTransaction(tx)) return false;
+	}
+
 	return true;
 }
 void Node::addBlockToChain(Block& block){

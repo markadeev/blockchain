@@ -9,7 +9,6 @@ public:
 	std::string prevBlockHash;
 	time_t timestamp;
 	long long nonce;
-	std::string thisBlockHash; // this field doesn't exist in real bitcoin
 	std::string MerkleRoot;
 	std::vector<Transaction> transactions;
 
@@ -18,6 +17,9 @@ public:
 	
 	std::string serializeBlock();
 	std::string calculateHash();
+	std::string calculateMerkleRoot();
+	std::string sha256(std::string is);
+
 	void mineBlock();
 
 };

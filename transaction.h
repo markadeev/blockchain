@@ -27,6 +27,7 @@ public:
 
 	bool verifyTransaction(const std::string& publicKeyPEM);
 	void makeTxId();
+	std::string calculateHash();
 
 };
 

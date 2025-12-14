@@ -43,12 +43,15 @@ int main(){
 	node1.utxoset = utxoset;
 
 	Miner miner1;
-	//miner1.addToMempool(TestTransaction);
-	//Block prevBlock;
-	//miner1.chain.push_back(prevBlock);
-	//Block block = miner1.buildBlock();
-	//block = miner1.mineBlock(block);
-	//std::cout << "miner 1 mined block: " << block.serializeBlock() << std::endl;
+	miner1.addToMempool(TestTransaction);
+	Block prevBlock;
+
+	miner1.chain.push_back(prevBlock);
+
+	Block block = miner1.buildBlock();
+	block = miner1.mineBlock(block);
+	std::cout << "miner 1 mined block: " << block.serializeBlock() << std::endl;
+	std::cout << "block merkle root:" << block.calculateMerkleRoot() << std::endl;
 
 	Node node2;
 	std::cout << "node2 utxoset empty? " << node2.utxoset.empty() << std::endl;
@@ -63,6 +66,8 @@ int main(){
 
 	node1.broadcastTransaction(TestTransaction);
 	if (!miner1.mempool.empty()) std::cout << miner1.mempool[0].serializeTransaction() << std::endl;
+
+	
 
         return 0;
 }

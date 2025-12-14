@@ -69,3 +69,16 @@ void Transaction::makeTxId(){
         }
 	TxId = os.str();
 }
+std::string Transaction::calculateHash(){
+	std::string data = serializeTransaction();
+
+	unsigned char hash[32];
+        SHA256(reinterpret_cast<const unsigned char *>(data.c_str()), data.size(), hash);
+
+        std::stringstream os;
+        for (int i = 0; i < 32; i++){
+                os << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(hash[i]);
+        }
+
+	return os.str();
+}

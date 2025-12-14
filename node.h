@@ -20,8 +20,8 @@ public:
 	void broadcastTransaction(Transaction& tx);
 	void receiveTransaction(Transaction& tx);
 
-	void broadcastBlock();
-	void receiveBlock();
+	void broadcastBlock(Block& block);
+	void receiveBlock(Block& block);
 
 	bool verifyBlock(Block& block);
 	void addBlockToChain(Block& block);
