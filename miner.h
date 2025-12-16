@@ -8,4 +8,5 @@ public:
 	Block buildBlock();
 	Block mineBlock(Block& block);
 
+
 };

@@ -43,31 +43,38 @@ int main(){
 	node1.utxoset = utxoset;
 
 	Miner miner1;
-	miner1.addToMempool(TestTransaction);
-	Block prevBlock;
+	//miner1.addToMempool(TestTransaction);
 
+	Block prevBlock;
 	miner1.chain.push_back(prevBlock);
 
-	Block block = miner1.buildBlock();
-	block = miner1.mineBlock(block);
-	std::cout << "miner 1 mined block: " << block.serializeBlock() << std::endl;
-	std::cout << "block merkle root:" << block.calculateMerkleRoot() << std::endl;
-
 	Node node2;
-	std::cout << "node2 utxoset empty? " << node2.utxoset.empty() << std::endl;
 	node2.utxoset = utxoset;
-	std::cout << "node2 utxoset empty? " << node2.utxoset.empty() << std::endl;
 	Node node3;
 	node3.utxoset = utxoset;
 	miner1.utxoset = utxoset;
+
 	node1.peers.push_back(&node2);
 	node2.peers.push_back(&node3);
 	node3.peers.push_back(&miner1);
 
-	node1.broadcastTransaction(TestTransaction);
-	if (!miner1.mempool.empty()) std::cout << miner1.mempool[0].serializeTransaction() << std::endl;
+	//miner1.peers.push_back(&node3);
 
+	node1.broadcastTransaction(TestTransaction);
+
+	for (auto tx : node2.mempool){
+		std::cout << "node 2 mempool" << tx.serializeTransaction() << std::endl;
+	}
 	
+	for (auto tx : miner1.mempool){
+		std::cout << "miner 1 mempool" << tx.serializeTransaction() << std::endl;
+	}
+	Block block = miner1.buildBlock();
+	block = miner1.mineBlock(block);
+	std::cout << "miner 1 mined block: " << block.serializeBlock() << std::endl;
+	std::cout << "miner1 block verification:" << miner1.verifyBlock(block) << std::endl;
+	miner1.broadcastBlock(block);
+	std::cout << "miner1 last block:" << miner1.chain.back().serializeBlock() << std::endl;
 
         return 0;
 }

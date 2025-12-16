@@ -24,7 +24,6 @@ bool Node::verifyTransaction(Transaction &tx){
 		std::string senderPublicKey = prevTxOut.publicKey;
 		if (!txin.verifyTxInput(senderPublicKey, data)) return false;
 	}
-	addToMempool(tx);
 	return true;
 }
 
@@ -41,11 +40,16 @@ void Node::receiveTransaction(Transaction& tx){
 	if (seenTxSet.count(tx.TxId)) return;
 	if (verifyTransaction(tx)){
 		seenTxSet.insert(tx.TxId);
-		mempool.push_back(tx);
+		addToMempool(tx);
 		broadcastTransaction(tx);
 	}
 }
 
+void Node::broadcastBlock(Block& block){
+	for (Node* peer : peers){
+		peer->receiveBlock(block);
+	}
+}
 void Node::receiveBlock(Block& block){
 	if (seenBlockSet.count(block.calculateHash())) return;
 	if (verifyBlock(block)){
@@ -55,18 +59,17 @@ void Node::receiveBlock(Block& block){
 	}
 		
 }
-void Node::broadcastBlock(Block& block){
-	for (Node* peer : peers){
-		peer->receiveBlock(block);
-	}
-}
 bool Node::verifyBlock(Block& block){
-	if (block.prevBlockHash != chain.back().calculateHash()) return false;
-
+	if (chain.empty()){
+		if (block.prevBlockHash != "") return false;
+	} else {
+		if (block.prevBlockHash != chain.back().calculateHash()) return false;
+		if (block.timestamp < chain.back().timestamp) return false;
+	}
+	
 	std::string thisBlockHash = block.calculateHash();
 	if (thisBlockHash.substr(0, 4) != std::string(4, '0')) return false;
 
-	if (block.timestamp < chain.back().timestamp) return false;
 
 	for (Transaction& tx : block.transactions){
 		if (!verifyTransaction(tx)) return false;
