@@ -1,6 +1,8 @@
+#include <iostream>
 #include <sstream>
 #include <openssl/sha.h>
 #include <string>
+#include <ctime>
 #include <iomanip>
 #include "block.h"
 
@@ -31,6 +33,19 @@ std::string Block::serializeBlock(){
 		ss << tx.serializeTransaction();
 	}
 	return ss.str();
+}
+void Block::print(){
+
+	std::time_t t = timestamp;
+	std::tm tm = *std::localtime(&t);
+
+	std::stringstream ss;
+	ss << "\n| prevBlockHash: " << prevBlockHash << " |\n| timestamp: " << std::put_time(&tm, "%Y-%m-%d %H:%M:%S") << " |\n| nonce: " << nonce << " |\n";
+	std::cout << ss.str() << std::endl;
+
+	for (Transaction tx : transactions){
+		tx.print();
+	}
 }
 
 std::string Block::sha256(std::string is){

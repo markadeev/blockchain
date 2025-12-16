@@ -11,12 +11,23 @@
 std::string Transaction::serializeTransaction(){
 	std::stringstream ss;
 	for (TxInput txin : inputs){
-		ss << txin.prevTxId << " | " << txin.prevTxIndex << " | " ;
+		ss << "| txin.prevTxId: " << txin.prevTxId << " |\n| txin.prevTxIndex: " << txin.prevTxIndex << " |\n\n" ;
 	}
 	for (TxOutput txout : outputs){
-		ss << txout.amount << " | " << txout.publicKey << " | ";
+		ss << "| txout.amount: " << txout.amount << " |\n| txout.publicKey:\n" << txout.publicKey << "\n";
 	}
 	return ss.str();
+}
+void Transaction::print(){
+	std::stringstream ss;
+	ss << "| TxId: " << TxId << " |\n\n";
+	for (TxInput txin : inputs){
+		ss << "| txin.prevTxId: " << txin.prevTxId << " |\n| txin.prevTxIndex: " << txin.prevTxIndex << " |\n\n" ;
+	}
+	for (TxOutput txout : outputs){
+		ss << "| txout.amount: " << txout.amount << " |\n| txout.publicKey:\n" << txout.publicKey << "\n";
+	}
+	std::cout << ss.str() << std::endl;
 }
 
 bool TxInput::verifyTxInput(const std::string& publicKeyPEM, std::string data){

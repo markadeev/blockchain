@@ -1,26 +1,35 @@
 #include <iostream>
-#include <openssl/evp.h>
-#include <openssl/pem.h>
+
+//#include <openssl/evp.h>
+//#include <openssl/pem.h>
+
+#include <openssl/ec.h>
+#include <openssl/obj_mac.h>
+
 #include <vector>
 #include <iomanip>
 #include "wallet.h"
 
+void Wallet::generateKeys() {
+    EVP_PKEY_CTX* ctx = EVP_PKEY_CTX_new_id(EVP_PKEY_EC, nullptr);
+    if (!ctx) throw std::runtime_error("Failed to create PKEY context");
 
-void Wallet::generateKeys(){
-	EVP_PKEY_CTX* ctx = EVP_PKEY_CTX_new_id(EVP_PKEY_RSA, nullptr);
-	EVP_PKEY_keygen_init(ctx);
-	EVP_PKEY_CTX_set_rsa_keygen_bits(ctx, 2048);
-	EVP_PKEY* newkey = nullptr;
-	EVP_PKEY_keygen(ctx, &newkey);
+    if (EVP_PKEY_keygen_init(ctx) <= 0)
+        throw std::runtime_error("Keygen init failed");
 
-	pkey = newkey;
+    if (EVP_PKEY_CTX_set_ec_paramgen_curve_nid(ctx, NID_secp256k1) <= 0)
+        throw std::runtime_error("Failed to set curve");
 
-	EVP_PKEY_CTX_free(ctx);
+    EVP_PKEY* newkey = nullptr;
+    if (EVP_PKEY_keygen(ctx, &newkey) <= 0)
+        throw std::runtime_error("Keygen failed");
 
-	
-	// extract public key, assign to publicKey field
-	getPublicKey();
+    pkey = newkey;
+    EVP_PKEY_CTX_free(ctx);
+
+    getPublicKey();
 }
+
 
 void Wallet::getPublicKey(){
 	BIO* bio = BIO_new(BIO_s_mem());

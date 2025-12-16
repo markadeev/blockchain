@@ -16,6 +16,7 @@ public:
 	Block(std::string prevBlockHash);
 	
 	std::string serializeBlock();
+	void print();
 	std::string calculateHash();
 	std::string calculateMerkleRoot();
 	std::string sha256(std::string is);

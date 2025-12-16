@@ -62,19 +62,24 @@ int main(){
 
 	node1.broadcastTransaction(TestTransaction);
 
+	std::cout << "node 2 mempool" << std::endl;
 	for (auto tx : node2.mempool){
-		std::cout << "node 2 mempool" << tx.serializeTransaction() << std::endl;
+		tx.print();
 	}
 	
+	std::cout << "miner 1 mempool" << std::endl;
 	for (auto tx : miner1.mempool){
-		std::cout << "miner 1 mempool" << tx.serializeTransaction() << std::endl;
+		tx.print();
 	}
 	Block block = miner1.buildBlock();
 	block = miner1.mineBlock(block);
-	std::cout << "miner 1 mined block: " << block.serializeBlock() << std::endl;
+
+	std::cout << "miner 1 mined block: " << std::endl;
+	block.print();
 	std::cout << "miner1 block verification:" << miner1.verifyBlock(block) << std::endl;
 	miner1.broadcastBlock(block);
-	std::cout << "miner1 last block:" << miner1.chain.back().serializeBlock() << std::endl;
+	std::cout << "miner1 last block:" << std::endl;
+	miner1.chain.back().print();
 
         return 0;
 }

@@ -24,6 +24,7 @@ public:
         std::vector<TxOutput> outputs;
 
 	std::string serializeTransaction();
+	void print();
 
 	bool verifyTransaction(const std::string& publicKeyPEM);
 	void makeTxId();
