@@ -55,6 +55,7 @@ void Node::receiveBlock(Block& block){
 	if (verifyBlock(block)){
 		seenBlockSet.insert(block.calculateHash());
 		addBlockToChain(block);
+		removeUtxos(block);
 		broadcastBlock(block);
 	}
 		
@@ -79,6 +80,11 @@ bool Node::verifyBlock(Block& block){
 }
 void Node::addBlockToChain(Block& block){
 	blockchain.addBlock(block);
+}
+void Node::removeUtxos(Block& block){
+	for (Transaction& tx : block.transactions){
+		utxoset.erase(tx.TxId);
+	}
 }
 
 

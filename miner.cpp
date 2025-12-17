@@ -25,6 +25,7 @@ Block Miner::mineBlock(Block& block){
 	if (verifyBlock(block)) {
 		seenBlockSet.insert(block.calculateHash());
 		addBlockToChain(block);
+		removeUtxos(block);
 	}
 
 	return block;
