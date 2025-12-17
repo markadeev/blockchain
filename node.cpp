@@ -60,11 +60,11 @@ void Node::receiveBlock(Block& block){
 		
 }
 bool Node::verifyBlock(Block& block){
-	if (chain.empty()){
+	if (blockchain.isEmpty()){
 		if (block.prevBlockHash != "") return false;
 	} else {
-		if (block.prevBlockHash != chain.back().calculateHash()) return false;
-		if (block.timestamp < chain.back().timestamp) return false;
+		if (block.prevBlockHash != blockchain.lastBlock().calculateHash()) return false;
+		if (block.timestamp < blockchain.lastBlock().timestamp) return false;
 	}
 	
 	std::string thisBlockHash = block.calculateHash();
@@ -78,7 +78,7 @@ bool Node::verifyBlock(Block& block){
 	return true;
 }
 void Node::addBlockToChain(Block& block){
-	chain.push_back(block);
+	blockchain.addBlock(block);
 }
 
 

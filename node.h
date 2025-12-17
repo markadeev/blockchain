@@ -1,13 +1,13 @@
 #pragma once
 #include <unordered_map>
 #include <unordered_set>
-
+#include "blockchain.h"
 #include "block.h"
 #include "transaction.h"
 
 class Node {
 public:
-	std::vector<Block> chain;
+	Blockchain blockchain;
 	std::vector<Transaction> mempool;
 	std::unordered_map<std::string, std::unordered_map<int, TxOutput>> utxoset;
 	std::vector<Node*> peers;	

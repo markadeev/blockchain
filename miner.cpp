@@ -2,7 +2,7 @@
 
 Block Miner::buildBlock(){
 	Block block;
-	block.prevBlockHash = chain.back().calculateHash();
+	block.prevBlockHash = blockchain.lastBlock().calculateHash();
 	block.MerkleRoot = block.calculateMerkleRoot();
 	int blockTransactionSize = 5;
 

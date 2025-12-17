@@ -3,13 +3,22 @@
 //#include "block.h"
 #include "blockchain.h"
 
+Blockchain::Blockchain()
+	:chain({})
+{
+	createGenesisBlock();
+}
+
 void Blockchain::createGenesisBlock(){
-	Block genesisBlock("0");
+	Block genesisBlock("");
 	chain.push_back(genesisBlock);
 }
-Block& Blockchain::getLatestBlock(){
+Block& Blockchain::lastBlock(){
 	return chain.back();
 }
-void Blockchain::addBlock(Block newBlock){
-	chain.push_back(newBlock);
+void Blockchain::addBlock(Block& block){
+	chain.push_back(block);
+}
+bool Blockchain::isEmpty(){
+	return chain.empty();	
 }
