@@ -66,15 +66,6 @@ std::string Block::calculateHash(){
 	return sha256(blockstring);
 	
 }
-/*void Block::mineBlock(){
-	int difficulty = 5;
-	nonce = 0;
-	std::string thisBlockHash = calculateHash();
-	while (thisBlockHash.substr(0, difficulty) != std::string(difficulty, '0')){
-		nonce++;
-		thisBlockHash = calculateHash();
-	}
-}*/
 std::string Block::calculateMerkleRoot(){
 	std::vector<std::string> hashes;
 	std::string merkleRoot;
