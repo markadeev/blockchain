@@ -58,7 +58,13 @@ int main(){
 	node2.peers.push_back(&node3);
 	node3.peers.push_back(&miner1);
 
-	//miner1.peers.push_back(&node3);
+	node1.addBlockToChain(prevBlock);
+	node2.addBlockToChain(prevBlock);
+	node3.addBlockToChain(prevBlock);
+
+	miner1.peers.push_back(&node3);
+	node3.peers.push_back(&node2);
+	node2.peers.push_back(&node1);
 
 	node1.broadcastTransaction(TestTransaction);
 
@@ -77,9 +83,22 @@ int main(){
 	std::cout << "miner 1 mined block: " << std::endl;
 	block.print();
 	std::cout << "miner1 block verification:" << miner1.verifyBlock(block) << std::endl;
+
+
 	miner1.broadcastBlock(block);
+
 	std::cout << "miner1 last block:" << std::endl;
 	miner1.chain.back().print();
+
+	std::cout << "node3 last block:" << std::endl;
+
+
+	node3.chain.back().print();
+	
+
+	std::cout << "node3 verify block" << node3.verifyBlock(block) << std::endl;
+	std::cout << "node1 last block" << std::endl;
+	node1.chain.back().print();
 
         return 0;
 }

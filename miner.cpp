@@ -21,6 +21,12 @@ Block Miner::mineBlock(Block& block){
 		block.nonce++;
 		thisBlockHash = block.calculateHash();
 	}
+	
+	if (verifyBlock(block)) {
+		seenBlockSet.insert(block.calculateHash());
+		addBlockToChain(block);
+	}
+
 	return block;
 }
 
