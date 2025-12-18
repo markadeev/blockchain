@@ -9,6 +9,8 @@ Block Miner::buildBlock(){
 	for (int i = 0; i < blockTransactionSize && i < mempool.size(); i++){
 		block.transactions.push_back(mempool[i]);
 	}
+	Transaction coinbaseTx = buildCoinbaseTransaction(minerWallet.publicKey, 50);
+	block.transactions.push_back(coinbaseTx);
 
 	return block;
 }
@@ -29,5 +31,24 @@ Block Miner::mineBlock(Block& block){
 	}
 
 	return block;
+}
+Transaction Miner::buildCoinbaseTransaction(std::string minerWalletPublicKey, int amount){
+	Transaction transaction;
+
+	TxInput txin;
+	txin.prevTxId = "0";
+	txin.prevTxIndex = 0;
+
+	TxOutput txout;
+	txout.index = 0;
+	txout.amount = amount;
+	txout.publicKey = minerWalletPublicKey;
+
+	transaction.inputs.push_back(txin);
+	transaction.outputs.push_back(txout);
+
+	transaction.makeTxId();;
+	
+	return transaction;
 }
 

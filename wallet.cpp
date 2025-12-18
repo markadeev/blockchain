@@ -92,6 +92,25 @@ Transaction Wallet::buildTransaction(std::string receiverPublicKey, int amount){
 	
 	return transaction;
 }
+Transaction Wallet::buildCoinbaseTransaction(std::string receiverPublicKey, int amount){
+	Transaction transaction;
+
+	TxInput txin;
+	txin.prevTxId = "0";
+	txin.prevTxIndex = 0;
+
+	TxOutput txout;
+	txout.index = 0;
+	txout.amount = amount;
+	txout.publicKey = receiverPublicKey;
+
+	transaction.inputs.push_back(txin);
+	transaction.outputs.push_back(txout);
+
+	transaction.makeTxId();;
+	
+	return transaction;
+}
 void Wallet::scanUtxoSet(std::unordered_map<std::string, std::unordered_map<int, TxOutput>>& utxoset){
 	for (auto& [txid, voutmap] : utxoset){
 		for (auto& [index, txout] : voutmap){

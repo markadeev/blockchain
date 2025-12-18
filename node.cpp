@@ -5,8 +5,12 @@
 
 
 bool Node::verifyTransaction(Transaction &tx){
+	// coinbase transaction
+	if (tx.inputs[0].prevTxId == "0") return true;
+
 	if (utxoset.empty()) return false;
 	if (tx.inputs.empty()) return false;
+
 
 	// must be wrapped correctly
 

@@ -25,7 +25,6 @@ public:
 
 	bool verifyBlock(Block& block);
 	void addBlockToChain(Block& block);
-	// add function to remove utxos after receiving and verifying block 
 	void removeUtxos(Block& block);
 
 };
