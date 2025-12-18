@@ -22,3 +22,9 @@ void Blockchain::addBlock(Block& block){
 bool Blockchain::isEmpty(){
 	return chain.empty();	
 }
+void Blockchain::print(){
+	for (Block& block : chain){
+		block.print();
+	}
+}
+

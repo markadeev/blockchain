@@ -1,14 +1,15 @@
 #include <iostream>
-
-//#include <openssl/evp.h>
-//#include <openssl/pem.h>
-
 #include <openssl/ec.h>
 #include <openssl/obj_mac.h>
-
 #include <vector>
 #include <iomanip>
 #include "wallet.h"
+
+Wallet::Wallet()
+	:publicKey("")
+{
+	generateKeys();
+}
 
 void Wallet::generateKeys() {
     EVP_PKEY_CTX* ctx = EVP_PKEY_CTX_new_id(EVP_PKEY_EC, nullptr);
@@ -121,6 +122,11 @@ void Wallet::signTransaction(Transaction& tx){
         }
 	for (TxInput& txin : tx.inputs){
 		txin.signature = ss.str();
+	}
+}
+void Wallet::broadcastTransaction(Transaction& tx){
+	for (Node* peer : peers){
+		peer->receiveTransaction(tx);
 	}
 }
 

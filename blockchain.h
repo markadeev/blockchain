@@ -11,5 +11,6 @@ public:
 	Block& lastBlock();
 	void addBlock(Block& block);
 	bool isEmpty();
+	void print();
 };
 
