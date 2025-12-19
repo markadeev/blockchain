@@ -85,28 +85,8 @@ Transaction Wallet::buildTransaction(std::string receiverPublicKey, int amount){
 	
 	transaction.outputs.push_back(txout);
 
-	//sign transaction;
 	signTransaction(transaction);
 	
-	transaction.makeTxId();;
-	
-	return transaction;
-}
-Transaction Wallet::buildCoinbaseTransaction(std::string receiverPublicKey, int amount){
-	Transaction transaction;
-
-	TxInput txin;
-	txin.prevTxId = "0";
-	txin.prevTxIndex = 0;
-
-	TxOutput txout;
-	txout.index = 0;
-	txout.amount = amount;
-	txout.publicKey = receiverPublicKey;
-
-	transaction.inputs.push_back(txin);
-	transaction.outputs.push_back(txout);
-
 	transaction.makeTxId();;
 	
 	return transaction;

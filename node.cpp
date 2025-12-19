@@ -5,11 +5,12 @@
 
 
 bool Node::verifyTransaction(Transaction &tx){
+	
+	if (tx.inputs.empty()) return false;
 	// coinbase transaction
-	if (tx.inputs[0].prevTxId == "0") return true;
+	if (tx.inputs[0].prevTxId == "0" && tx.inputs[0].prevTxIndex == 0) return true;
 
 	if (utxoset.empty()) return false;
-	if (tx.inputs.empty()) return false;
 
 
 	// must be wrapped correctly
@@ -66,7 +67,7 @@ void Node::receiveBlock(Block& block){
 }
 bool Node::verifyBlock(Block& block){
 	if (blockchain.isEmpty()){
-		if (block.prevBlockHash != "") return false;
+		if (block.prevBlockHash != "0") return false;
 	} else {
 		if (block.prevBlockHash != blockchain.lastBlock().calculateHash()) return false;
 		if (block.timestamp < blockchain.lastBlock().timestamp) return false;

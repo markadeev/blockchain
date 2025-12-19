@@ -8,13 +8,14 @@
 
 // constructor
 Block::Block()
-	:prevBlockHash(""),
+	:prevBlockHash("0"),
 	timestamp(std::time(nullptr)),
 	nonce(0),
 	MerkleRoot(""),
 	transactions({})
 {
 	//optional mineBlock function
+	//coinbase transaction to foundation wallet
 }
 
 Block::Block(std::string prevBlockHash)

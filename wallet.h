@@ -20,7 +20,6 @@ public:
 
 	EVP_PKEY* getPrivateKey();
 	Transaction buildTransaction(std::string receiverPublicKey, int amount);
-	Transaction buildCoinbaseTransaction(std::string reveiverPublicKey, int amount);
 	void scanUtxoSet(std::unordered_map<std::string, std::unordered_map<int, TxOutput>>& utxoset);
 	void signTransaction(Transaction& tx);
 	void broadcastTransaction(Transaction& tx);

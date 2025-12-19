@@ -10,7 +10,7 @@ Blockchain::Blockchain()
 }
 
 void Blockchain::createGenesisBlock(){
-	Block genesisBlock("");
+	Block genesisBlock;
 	chain.push_back(genesisBlock);
 }
 Block& Blockchain::lastBlock(){
