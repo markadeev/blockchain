@@ -59,6 +59,11 @@ Transaction Wallet::buildTransaction(std::string receiverPublicKey, int amount){
 	TxOutput txout;
 	TxOutput utxo;
 
+	if (myUtxos.empty()) {
+		std::cout << "myUtxos is empty\n" << std::endl;
+		return transaction;
+	}
+
 	for (auto [txid, txOutput] : myUtxos){
 		if (txOutput.amount >= amount){
 			utxo = txOutput;

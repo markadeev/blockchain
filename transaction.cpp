@@ -8,6 +8,16 @@
 #include <iomanip>
 #include "transaction.h"
 
+TxInput::TxInput():
+	prevTxId(""),
+	prevTxIndex(0)
+{}
+
+TxOutput::TxOutput():
+	index(0),
+	amount(0)
+{}
+
 std::string Transaction::serializeTransaction(){
 	std::stringstream ss;
 	for (TxInput txin : inputs){

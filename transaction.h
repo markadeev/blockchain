@@ -9,11 +9,13 @@ struct TxInput{
 	// in P2PK, the scriptsig unlocking script has only the publicKey
 	std::string signature;
 
+	TxInput();
 	bool verifyTxInput(const std::string& publicKeyPEM, std::string data);
 };
 struct TxOutput{
 	int index;
 	int amount;
+	TxOutput();
 	std::string publicKey;
 };
 

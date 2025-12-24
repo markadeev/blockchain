@@ -60,7 +60,7 @@ void Node::receiveBlock(Block& block){
 	if (verifyBlock(block)){
 		seenBlockSet.insert(block.calculateHash());
 		addBlockToChain(block);
-		removeUtxos(block);
+		updateUtxos(block);
 		broadcastBlock(block);
 	}
 		
@@ -86,9 +86,14 @@ bool Node::verifyBlock(Block& block){
 void Node::addBlockToChain(Block& block){
 	blockchain.addBlock(block);
 }
-void Node::removeUtxos(Block& block){
+void Node::updateUtxos(Block& block){
 	for (Transaction& tx : block.transactions){
-		utxoset.erase(tx.TxId);
+		for (TxInput& txin : tx.inputs){
+			utxoset.erase(txin.prevTxId);
+		}
+		for (TxOutput& txout : tx.outputs){
+			utxoset[tx.TxId][txout.index] = txout;
+		}
 	}
 }
 

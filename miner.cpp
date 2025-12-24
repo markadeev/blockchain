@@ -27,7 +27,8 @@ Block Miner::mineBlock(Block& block){
 	if (verifyBlock(block)) {
 		seenBlockSet.insert(block.calculateHash());
 		addBlockToChain(block);
-		removeUtxos(block);
+		updateUtxos(block);
+		minerWallet.scanUtxoSet(utxoset);
 	}
 
 	return block;
