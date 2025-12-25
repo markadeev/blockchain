@@ -1,4 +1,5 @@
 #include "miner.h"
+#include "iostream"
 
 Block Miner::buildBlock(){
 	Block block;
@@ -43,6 +44,9 @@ Transaction Miner::buildCoinbaseTransaction(std::string minerWalletPublicKey, in
 	TxInput txin;
 	txin.prevTxId = "0";
 	txin.prevTxIndex = 0;
+	// making TxId unique
+	// using block height instead of signature
+	txin.signature = std::to_string(blockchain.chain.size() + 1);
 
 	TxOutput txout;
 	txout.index = 0;

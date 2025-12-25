@@ -76,7 +76,14 @@ bool Transaction::verifyTransaction(const std::string& publicKeyPEM){
 	return true;
 }
 void Transaction::makeTxId(){
-	std::string data = serializeTransaction();
+	//std::string data = serializeTransaction();
+	// add txins signatures to data
+	std::stringstream temp;
+	for (auto& txin : inputs){
+		temp << txin.signature;
+	}
+	temp << serializeTransaction();
+	std::string data = temp.str();
 
 	unsigned char hash1[32];
         SHA256(reinterpret_cast<const unsigned char *>(data.c_str()), data.size(), hash1);

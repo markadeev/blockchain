@@ -23,16 +23,13 @@ int main(){
 	miner1.minerWallet.connectedNode = &node1;
 	miner1.minerWallet.submitTransaction(tx1);
 
-	miner1.printMempool();
-	node1.printMempool();
 
 	Block block2 = miner1.buildBlock();
 	block2 = miner1.mineBlock(block2);
 	miner1.broadcastBlock(block2);
 
-	miner1.printMempool();
-	node1.printMempool();
 
+	node1.blockchain.print();
 	
 
 
