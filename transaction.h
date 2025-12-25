@@ -15,8 +15,8 @@ struct TxInput{
 struct TxOutput{
 	int index;
 	int amount;
-	TxOutput();
 	std::string publicKey;
+	TxOutput();
 };
 
 class Transaction{

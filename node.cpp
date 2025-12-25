@@ -60,6 +60,7 @@ void Node::receiveBlock(Block& block){
 	if (verifyBlock(block)){
 		seenBlockSet.insert(block.calculateHash());
 		addBlockToChain(block);
+		updateMempool(block);
 		updateUtxos(block);
 		broadcastBlock(block);
 	}
@@ -89,12 +90,54 @@ void Node::addBlockToChain(Block& block){
 void Node::updateUtxos(Block& block){
 	for (Transaction& tx : block.transactions){
 		for (TxInput& txin : tx.inputs){
-			utxoset.erase(txin.prevTxId);
+			utxoset[tx.TxId].erase(txin.prevTxIndex);
 		}
 		for (TxOutput& txout : tx.outputs){
 			utxoset[tx.TxId][txout.index] = txout;
 		}
 	}
 }
+void Node::updateMempool(Block& block){
+	for (Transaction& tx : block.transactions){
+		for (int i = mempool.size(); i-- > 0;){
+			if (tx.TxId == mempool[i].TxId){
+				mempool.erase(mempool.begin() + i);
+			}
+		}
+	}
+}
 
+std::vector<std::pair<std::string, TxOutput>> Node::getUtxos(std::string publicKey){
+	std::vector<std::pair<std::string, TxOutput>> utxos;
+	for (auto& [txid, voutmap] : utxoset){
+		for (auto& [index, txout] : voutmap){
+			if (txout.publicKey == publicKey){
+				utxos.push_back({txid, txout});
+			}
+		}
+	}
+	return utxos;
 
+}
+void Node::printUtxoset(){
+	std::cout << "Utxoset:" << std::endl;
+	if (utxoset.empty()) {
+		std::cout << "utxoset is empty" << std::endl;
+		return;
+	}
+	for (auto& [txid, voutmap] : utxoset){
+		std::cout << "txid: " << txid << std::endl;
+		for (auto& [index, txout] : voutmap){
+			std::cout << "txout.index: " << txout.index << std::endl;
+			std::cout << "txout.amount: " << txout.amount << std::endl;
+			std::cout << "txout.publicKey: " << txout.publicKey << "\n" << std::endl;
+		}
+	}
+
+}
+void Node::printMempool(){
+	std::cout << "Mempool:" << std::endl;
+	for (Transaction tx : mempool){
+		tx.print();
+	}
+}

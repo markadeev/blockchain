@@ -6,7 +6,9 @@
 #include "wallet.h"
 
 Wallet::Wallet()
-	:publicKey("")
+	:publicKey(""),
+	myUtxos({}),
+	connectedNode(nullptr)
 {
 	generateKeys();
 }
@@ -97,6 +99,7 @@ Transaction Wallet::buildTransaction(std::string receiverPublicKey, int amount){
 	return transaction;
 }
 void Wallet::scanUtxoSet(std::unordered_map<std::string, std::unordered_map<int, TxOutput>>& utxoset){
+	myUtxos = {};
 	for (auto& [txid, voutmap] : utxoset){
 		for (auto& [index, txout] : voutmap){
 			if (txout.publicKey == publicKey) myUtxos.push_back({txid, txout});
@@ -128,9 +131,32 @@ void Wallet::signTransaction(Transaction& tx){
 		txin.signature = ss.str();
 	}
 }
-void Wallet::broadcastTransaction(Transaction& tx){
-	for (Node* peer : peers){
-		peer->receiveTransaction(tx);
+void Wallet::submitTransaction(Transaction& tx){
+	if (connectedNode == nullptr){
+		std::cout << "No connected node" << std::endl;
+		return;
+	}
+	connectedNode->receiveTransaction(tx);
+}
+
+void Wallet::receiveUtxos(){
+	if (connectedNode == nullptr){
+		std::cout << "No connected node" << std::endl;
+		return;
+	}
+	myUtxos = connectedNode->getUtxos(publicKey);
+
+
+}
+void Wallet::printMyUtxos(){
+	if (myUtxos.empty()){
+		std::cout << "myUtxos is empty" << std::endl;
+	}
+	for (auto& [txid, txout] : myUtxos){
+		std::cout << "txid: " << txid << std::endl;
+		std::cout << "txout.index: " << txout.index << std::endl;
+		std::cout << "txout.amount: " << txout.amount << std::endl;
+		std::cout << "txout.publicKey: " << txout.publicKey << "\n" << std::endl;
 	}
 }
 

@@ -23,6 +23,7 @@ bool Blockchain::isEmpty(){
 	return chain.empty();	
 }
 void Blockchain::print(){
+	std::cout << "Blockchain:" << std::endl;
 	for (int i = 0; i < chain.size() ; i++){
 		std::cout << "Block " << i << std::endl;
 		chain[i].print();

@@ -26,5 +26,10 @@ public:
 	bool verifyBlock(Block& block);
 	void addBlockToChain(Block& block);
 	void updateUtxos(Block& block);
+	void updateMempool(Block& block);
+	std::vector<std::pair<std::string, TxOutput>> getUtxos(std::string publicKey);
+	void printUtxoset();
+	void printMempool();
+	
 
 };
