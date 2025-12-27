@@ -36,6 +36,10 @@ void Node::addToMempool(Transaction &tx){
 	mempool.push_back(tx);
 }
 
+void Node::addPeer(Node* nodeptr){
+	peers.push_back(nodeptr);
+}
+
 void Node::broadcastTransaction(Transaction& tx){
 	for (Node* peer : peers){
 		peer->receiveTransaction(tx);

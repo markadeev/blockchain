@@ -13,7 +13,7 @@ public:
 	std::vector<std::pair<std::string, TxOutput>> myUtxos;
 	Node* connectedNode;
 
-	Wallet();
+	Wallet(Node* connectedNodeptr);
 
         void generateKeys();
         void getPublicKey();
@@ -23,8 +23,8 @@ public:
 	Transaction buildTransaction(std::string receiverPublicKey, int amount);
 	void scanUtxoSet(std::unordered_map<std::string, std::unordered_map<int, TxOutput>>& utxoset);
 	void signTransaction(Transaction& tx);
-
 	void submitTransaction(Transaction& tx);
+	void buildSubmitTransaction(std::string receiverPublicKey, int amount);
 
 	void receiveUtxos();
 	void printMyUtxos();

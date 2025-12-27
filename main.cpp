@@ -10,23 +10,19 @@ int main(){
 
 	Miner miner1;	
 	Node node1;
-	miner1.peers.push_back(&node1);
-	node1.peers.push_back(&miner1);
+
+	miner1.addPeer(&node1);
+	node1.addPeer(&miner1);
 
 	Block block = miner1.buildBlock();
 	block = miner1.mineBlock(block);
 	miner1.broadcastBlock(block);
 	
-	Wallet wallet1;
-	Transaction tx1 = miner1.minerWallet.buildTransaction(wallet1.publicKey, 10);
+	Wallet wallet1(&node1);
+
+	miner1.minerWallet.buildSubmitTransaction(wallet1.publicKey, 10);
 	
-	miner1.minerWallet.connectedNode = &node1;
-	miner1.minerWallet.submitTransaction(tx1);
-
-
-	Block block2 = miner1.buildBlock();
-	block2 = miner1.mineBlock(block2);
-	miner1.broadcastBlock(block2);
+	miner1.mineBroadcastBlock();
 
 
 	node1.blockchain.print();

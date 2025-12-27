@@ -16,6 +16,7 @@ public:
 
 	bool verifyTransaction(Transaction &tx);
 	void addToMempool(Transaction &tx);
+	void addPeer(Node* nodeptr);
 	
 	void broadcastTransaction(Transaction& tx);
 	void receiveTransaction(Transaction& tx);
@@ -25,6 +26,7 @@ public:
 
 	bool verifyBlock(Block& block);
 	void addBlockToChain(Block& block);
+
 	void updateUtxos(Block& block);
 	void updateMempool(Block& block);
 	std::vector<std::pair<std::string, TxOutput>> getUtxos(std::string publicKey);

@@ -1,6 +1,10 @@
 #include "miner.h"
 #include "iostream"
 
+Miner::Miner()
+	:minerWallet(this)
+{
+}
 Block Miner::buildBlock(){
 	Block block;
 	block.prevBlockHash = blockchain.lastBlock().calculateHash();
@@ -8,7 +12,6 @@ Block Miner::buildBlock(){
 	int blockTransactionSize = 5;
 	for (int i = 0; i < blockTransactionSize && i < mempool.size(); i++){
 		block.transactions.push_back(mempool[i]);
-		mempool.erase(mempool.begin() + i);
 
 	}
 
@@ -32,11 +35,18 @@ Block Miner::mineBlock(Block& block){
 	if (verifyBlock(block)) {
 		seenBlockSet.insert(block.calculateHash());
 		addBlockToChain(block);
+		updateMempool(block);
 		updateUtxos(block);
 		minerWallet.scanUtxoSet(utxoset);
 	}
 
 	return block;
+}
+void Miner::mineBroadcastBlock(){
+	Block block = buildBlock();
+	block = mineBlock(block);
+	broadcastBlock(block);
+
 }
 Transaction Miner::buildCoinbaseTransaction(std::string minerWalletPublicKey, int amount){
 	Transaction transaction;

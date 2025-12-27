@@ -5,10 +5,10 @@
 #include <iomanip>
 #include "wallet.h"
 
-Wallet::Wallet()
+Wallet::Wallet(Node* connectedNodeptr)
 	:publicKey(""),
 	myUtxos({}),
-	connectedNode(nullptr)
+	connectedNode(connectedNodeptr)
 {
 	generateKeys();
 }
@@ -97,6 +97,11 @@ Transaction Wallet::buildTransaction(std::string receiverPublicKey, int amount){
 	transaction.makeTxId();;
 	
 	return transaction;
+}
+
+void Wallet::buildSubmitTransaction(std::string receiverPublicKey, int amount){
+	Transaction tx = buildTransaction(receiverPublicKey, amount);
+	submitTransaction(tx);
 }
 void Wallet::scanUtxoSet(std::unordered_map<std::string, std::unordered_map<int, TxOutput>>& utxoset){
 	myUtxos = {};
