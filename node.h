@@ -7,12 +7,15 @@
 
 class Node {
 public:
+
 	Blockchain blockchain;
 	std::vector<Transaction> mempool;
 	std::unordered_map<std::string, std::unordered_map<int, TxOutput>> utxoset;
 	std::vector<Node*> peers;	
 	std::unordered_set<std::string> seenTxSet;
 	std::unordered_set<std::string> seenBlockSet;
+
+	Node();
 
 	bool verifyTransaction(Transaction &tx);
 	void addToMempool(Transaction &tx);
@@ -32,6 +35,7 @@ public:
 	std::vector<std::pair<std::string, TxOutput>> getUtxos(std::string publicKey);
 	void printUtxoset();
 	void printMempool();
+	void printBlockchain();
 	
 
 };

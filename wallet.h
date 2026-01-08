@@ -16,9 +16,14 @@ public:
 	Wallet(Node* connectedNodeptr);
 
         void generateKeys();
+
+	void importPrivateKeyPEM(const std::string& pemkey);
+
         void getPublicKey();
-        void printPrivateKey();
 	EVP_PKEY* getPrivateKey();
+
+	void printPublicKey();
+        void printPrivateKey();
 
 	Transaction buildTransaction(std::string receiverPublicKey, int amount);
 	void scanUtxoSet(std::unordered_map<std::string, std::unordered_map<int, TxOutput>>& utxoset);
@@ -28,6 +33,7 @@ public:
 
 	void receiveUtxos();
 	void printMyUtxos();
+
 
 
 private:

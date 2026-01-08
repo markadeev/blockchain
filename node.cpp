@@ -3,6 +3,11 @@
 
 #include "node.h"
 
+Node::Node()
+{
+	updateUtxos(blockchain.lastBlock());
+}
+
 
 bool Node::verifyTransaction(Transaction &tx){
 	
@@ -144,4 +149,7 @@ void Node::printMempool(){
 	for (Transaction tx : mempool){
 		tx.print();
 	}
+}
+void Node::printBlockchain(){
+	blockchain.print();
 }

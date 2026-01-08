@@ -12,7 +12,7 @@ public:
 	Block buildBlock();
 	Block mineBlock(Block& block);
 	void mineBroadcastBlock();
-	Transaction buildCoinbaseTransaction(std::string minerWalletPublicKey, int amount);
+	Transaction buildCoinbaseTransaction(std::string minerWalletPublicKey, int reward);
 
 
 

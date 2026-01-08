@@ -48,7 +48,7 @@ void Miner::mineBroadcastBlock(){
 	broadcastBlock(block);
 
 }
-Transaction Miner::buildCoinbaseTransaction(std::string minerWalletPublicKey, int amount){
+Transaction Miner::buildCoinbaseTransaction(std::string minerWalletPublicKey, int reward){
 	Transaction transaction;
 
 	TxInput txin;
@@ -60,7 +60,7 @@ Transaction Miner::buildCoinbaseTransaction(std::string minerWalletPublicKey, in
 
 	TxOutput txout;
 	txout.index = 0;
-	txout.amount = amount;
+	txout.amount = reward;
 	txout.publicKey = minerWalletPublicKey;
 
 	transaction.inputs.push_back(txin);

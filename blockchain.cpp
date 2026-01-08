@@ -2,6 +2,7 @@
 #include <vector>
 //#include "block.h"
 #include "blockchain.h"
+#include "foundation_pub.h"
 
 Blockchain::Blockchain()
 	:chain({})
@@ -10,7 +11,17 @@ Blockchain::Blockchain()
 }
 
 void Blockchain::createGenesisBlock(){
+
+	Transaction tx;
+	TxOutput txout;
+	txout.index = 0;
+	txout.amount = FOUNDATION_AMOUNT;
+	txout.publicKey = FOUNDATION_PUBKEY;
+	tx.outputs.push_back(txout);
+	tx.makeTxId();
+
 	Block genesisBlock;
+	genesisBlock.transactions.push_back(tx);
 	chain.push_back(genesisBlock);
 }
 Block& Blockchain::lastBlock(){

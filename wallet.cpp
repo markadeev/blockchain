@@ -1,6 +1,7 @@
 #include <iostream>
 #include <openssl/ec.h>
 #include <openssl/obj_mac.h>
+#include <openssl/bio.h>
 #include <vector>
 #include <iomanip>
 #include "wallet.h"
@@ -33,6 +34,21 @@ void Wallet::generateKeys() {
     getPublicKey();
 }
 
+void Wallet::importPrivateKeyPEM(const std::string& pemkey){
+	BIO* bio = BIO_new_mem_buf(pemkey.data(), static_cast<int>(pemkey.size()));
+	if (!bio) throw std::runtime_error("BIO creation failed");
+	EVP_PKEY* newkey = PEM_read_bio_PrivateKey(bio, nullptr, nullptr, nullptr);
+	BIO_free(bio);
+
+	if (!newkey) throw std::runtime_error("Failed to read PEM private key");
+	if (pkey) EVP_PKEY_free(pkey);
+
+	pkey = newkey;
+
+	getPublicKey();
+	receiveUtxos();
+}
+
 
 void Wallet::getPublicKey(){
 	BIO* bio = BIO_new(BIO_s_mem());
@@ -41,6 +57,10 @@ void Wallet::getPublicKey(){
 	long len = BIO_get_mem_data(bio, &data);
 	publicKey.assign(data, len);
 	BIO_free(bio);
+}
+
+void Wallet::printPublicKey(){
+	std::cout << publicKey << std::endl;
 }
 
 void Wallet::printPrivateKey(){
@@ -52,6 +72,7 @@ void Wallet::printPrivateKey(){
 	std::cout << std::endl;
 	BIO_free(bio);
 }
+
 EVP_PKEY* Wallet::getPrivateKey(){
 	return pkey;
 }
