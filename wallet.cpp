@@ -12,7 +12,7 @@ Wallet::Wallet(Node* connectedNodeptr)
 	connectedNode(connectedNodeptr)
 {
 	generateKeys();
-	receiveUtxos();
+	updateMyUtxos();
 }
 
 void Wallet::generateKeys() {
@@ -48,7 +48,7 @@ void Wallet::importPrivateKeyPEM(const std::string& pemkey){
 
 	getPublicKey();
 	myUtxos = {};
-	receiveUtxos();
+	updateMyUtxos();
 }
 
 
@@ -123,6 +123,7 @@ Transaction Wallet::buildTransaction(std::string receiverPublicKey, int amount){
 }
 
 void Wallet::buildSubmitTransaction(std::string receiverPublicKey, int amount){
+	updateMyUtxos();
 	Transaction tx = buildTransaction(receiverPublicKey, amount);
 	submitTransaction(tx);
 }
@@ -167,12 +168,12 @@ void Wallet::submitTransaction(Transaction& tx){
 	connectedNode->receiveTransaction(tx);
 }
 
-void Wallet::receiveUtxos(){
+void Wallet::updateMyUtxos(){
 	if (connectedNode == nullptr){
 		std::cout << "No connected node" << std::endl;
 		return;
 	}
-	myUtxos = connectedNode->getUtxos(publicKey);
+	myUtxos = connectedNode->getMyUtxos(publicKey);
 
 
 }

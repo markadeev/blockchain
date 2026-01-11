@@ -116,7 +116,7 @@ void Node::updateMempool(Block& block){
 	}
 }
 
-std::vector<std::pair<std::string, TxOutput>> Node::getUtxos(std::string publicKey){
+std::vector<std::pair<std::string, TxOutput>> Node::getMyUtxos(std::string publicKey){
 	std::vector<std::pair<std::string, TxOutput>> utxos;
 	for (auto& [txid, voutmap] : utxoset){
 		for (auto& [index, txout] : voutmap){

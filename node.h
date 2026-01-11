@@ -32,7 +32,7 @@ public:
 
 	void updateUtxos(Block& block);
 	void updateMempool(Block& block);
-	std::vector<std::pair<std::string, TxOutput>> getUtxos(std::string publicKey);
+	std::vector<std::pair<std::string, TxOutput>> getMyUtxos(std::string publicKey);
 	void printUtxoset();
 	void printMempool();
 	void printBlockchain();

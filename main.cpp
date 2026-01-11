@@ -24,26 +24,15 @@ int main(){
 
 
 	Wallet foundationWallet(&node1);
+	foundationWallet.printMyUtxos();
 
 	foundationWallet.importPrivateKeyPEM(FOUNDATION_PRIVKEY);
 
-	auto it = node1.getUtxos(foundationWallet.publicKey);
-	
-	if (it.empty()){
-		std::cout << "myUtxos is empty" << std::endl;
-	}
-	for (auto& [txid, txout] : it){
-		std::cout << "txid: " << txid << std::endl;
-		std::cout << "txout.index: " << txout.index << std::endl;
-		std::cout << "txout.amount: " << txout.amount << std::endl;
-		std::cout << "txout.publicKey: " << txout.publicKey << "\n" << std::endl;
-	}
-
+	foundationWallet.printMyUtxos();
 
 
 	foundationWallet.buildSubmitTransaction(wallet1.publicKey, 100);
 	miner1.mineBroadcastBlock();
-	node1.printBlockchain();
 	
 
         return 0;

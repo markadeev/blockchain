@@ -31,7 +31,7 @@ public:
 	void submitTransaction(Transaction& tx);
 	void buildSubmitTransaction(std::string receiverPublicKey, int amount);
 
-	void receiveUtxos();
+	void updateMyUtxos();
 	void printMyUtxos();
 
 
