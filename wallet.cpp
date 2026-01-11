@@ -12,6 +12,7 @@ Wallet::Wallet(Node* connectedNodeptr)
 	connectedNode(connectedNodeptr)
 {
 	generateKeys();
+	receiveUtxos();
 }
 
 void Wallet::generateKeys() {
@@ -46,6 +47,7 @@ void Wallet::importPrivateKeyPEM(const std::string& pemkey){
 	pkey = newkey;
 
 	getPublicKey();
+	myUtxos = {};
 	receiveUtxos();
 }
 
