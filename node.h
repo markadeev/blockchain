@@ -28,6 +28,10 @@ public:
 	void receiveBlock(Block& block);
 
 	bool verifyBlock(Block& block);
+
+	bool containsUtxo(const std::unordered_map<std::string, std::unordered_map<int, TxOutput>>& utxoset, const std::string& txid, int index);
+	void eraseUtxo(std::unordered_map<std::string, std::unordered_map<int, TxOutput>>& utxoset, const std::string& txid, int index);
+
 	void addBlockToChain(Block& block);
 
 	void updateUtxos(Block& block);

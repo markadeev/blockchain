@@ -15,25 +15,15 @@ int main(){
 	miner1.addPeer(&node1);
 	node1.addPeer(&miner1);
 
-	miner1.mineBroadcastBlock();
-	
-	Wallet wallet1(&node1);
-	miner1.minerWallet.buildSubmitTransaction(wallet1.publicKey, 10);
-	
-	miner1.mineBroadcastBlock();
-
-
 	Wallet foundationWallet(&node1);
-	foundationWallet.printMyUtxos();
-
 	foundationWallet.importPrivateKeyPEM(FOUNDATION_PRIVKEY);
 
-	foundationWallet.printMyUtxos();
-
-
+	Wallet wallet1(&node1);
 	foundationWallet.buildSubmitTransaction(wallet1.publicKey, 100);
+	foundationWallet.buildSubmitTransaction(wallet1.publicKey, 300);
+
 	miner1.mineBroadcastBlock();
-	
+	node1.printBlockchain();
 
         return 0;
 }

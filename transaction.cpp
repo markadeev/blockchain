@@ -40,7 +40,7 @@ void Transaction::print(){
 	std::cout << ss.str() << std::endl;
 }
 
-bool TxInput::verifyTxInput(const std::string& publicKeyPEM, std::string data){
+bool TxInput::verifyTxInputSignature(const std::string& publicKeyPEM, std::string data){
 	std::vector<unsigned char> sig;
 	sig.reserve(signature.size()/2);
 	
@@ -68,10 +68,10 @@ bool TxInput::verifyTxInput(const std::string& publicKeyPEM, std::string data){
 	
 	return ok == 1;
 }
-bool Transaction::verifyTransaction(const std::string& publicKeyPEM){
+bool Transaction::verifyTxSignature(const std::string& publicKeyPEM){
 	std::string data = serializeTransaction();
 	for (TxInput& txin : inputs){
-		if (txin.verifyTxInput(publicKeyPEM, data) != 1) return false;
+		if (txin.verifyTxInputSignature(publicKeyPEM, data) != 1) return false;
 	}
 	return true;
 }

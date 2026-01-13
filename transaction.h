@@ -10,7 +10,7 @@ struct TxInput{
 	std::string signature;
 
 	TxInput();
-	bool verifyTxInput(const std::string& publicKeyPEM, std::string data);
+	bool verifyTxInputSignature(const std::string& publicKeyPEM, std::string data);
 };
 struct TxOutput{
 	int index;
@@ -28,7 +28,7 @@ public:
 	std::string serializeTransaction();
 	void print();
 
-	bool verifyTransaction(const std::string& publicKeyPEM);
+	bool verifyTxSignature(const std::string& publicKeyPEM);
 	void makeTxId();
 	std::string calculateHash();
 

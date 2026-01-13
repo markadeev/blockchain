@@ -12,11 +12,11 @@ Node::Node()
 bool Node::verifyTransaction(Transaction &tx){
 	
 	if (tx.inputs.empty()) return false;
+
 	// coinbase transaction
 	if (tx.inputs[0].prevTxId == "0" && tx.inputs[0].prevTxIndex == 0) return true;
 
 	if (utxoset.empty()) return false;
-
 
 	// must be wrapped correctly
 
@@ -32,7 +32,7 @@ bool Node::verifyTransaction(Transaction &tx){
 		TxOutput& prevTxOut = itInner->second;
 		
 		std::string senderPublicKey = prevTxOut.publicKey;
-		if (!txin.verifyTxInput(senderPublicKey, data)) return false;
+		if (!txin.verifyTxInputSignature(senderPublicKey, data)) return false;
 	}
 	return true;
 }
@@ -75,6 +75,37 @@ void Node::receiveBlock(Block& block){
 	}
 		
 }
+//helper function for verifyBlock
+bool Node::containsUtxo(
+		const std::unordered_map<std::string, std::unordered_map<int, TxOutput>>& utxoset, 
+		const std::string& txid, 
+		int index) {
+
+	// skip coinbase transaction
+	if (txid == "0" && index == 0) return true;
+
+	auto txIt = utxoset.find(txid);
+	if (txIt == utxoset.end()){
+		std::cout << "Node.containsUtxo(): txid not found in utxoset" << std::endl;
+		return false;
+	}
+
+	return txIt->second.find(index) != txIt->second.end();
+}
+//helper function for verifyBlock
+void Node::eraseUtxo(
+		std::unordered_map<std::string, std::unordered_map<int, TxOutput>>& utxoset,
+    		const std::string& txid,
+    		int index) {
+	auto txIt = utxoset.find(txid);
+	if (txIt == utxoset.end()) return;
+
+	txIt->second.erase(index);
+
+	// clean up empty inner map
+	if (txIt->second.empty())
+	utxoset.erase(txIt);
+}
 bool Node::verifyBlock(Block& block){
 	if (blockchain.isEmpty()){
 		if (block.prevBlockHash != "0") return false;
@@ -91,15 +122,36 @@ bool Node::verifyBlock(Block& block){
 		if (!verifyTransaction(tx)) return false;
 	}
 
+	// check for double spending
+	auto tempUtxos = utxoset;
+	for (Transaction& tx : block.transactions){
+		for (TxInput& txin : tx.inputs){
+			// if no such utxo => invalid block
+			if (!containsUtxo(tempUtxos, txin.prevTxId, txin.prevTxIndex)){
+				std::cout << "Node.verifyBlock(): Invalid block" << std::endl;
+				return false;
+			}
+			// if there is such utxo, erase it from temporary utxoset
+			eraseUtxo(tempUtxos, txin.prevTxId, txin.prevTxIndex);
+		}
+		// in case tx1 outputs are used by tx2 in the same block
+		for (TxOutput& txout : tx.outputs){
+			tempUtxos[tx.TxId][txout.index] = txout;
+		}
+	}
+
 	return true;
 }
+
+
 void Node::addBlockToChain(Block& block){
 	blockchain.addBlock(block);
 }
 void Node::updateUtxos(Block& block){
 	for (Transaction& tx : block.transactions){
 		for (TxInput& txin : tx.inputs){
-			utxoset[tx.TxId].erase(txin.prevTxIndex);
+			utxoset[txin.prevTxId].erase(txin.prevTxIndex);
+			if (utxoset[txin.prevTxId].empty()) utxoset.erase(txin.prevTxId);
 		}
 		for (TxOutput& txout : tx.outputs){
 			utxoset[tx.TxId][txout.index] = txout;

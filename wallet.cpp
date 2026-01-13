@@ -84,17 +84,28 @@ Transaction Wallet::buildTransaction(std::string receiverPublicKey, int amount){
 	TxOutput txout;
 	TxOutput utxo;
 
+	bool found = false;
+
 	if (myUtxos.empty()) {
-		std::cout << "myUtxos is empty\n" << std::endl;
+		std::cout << "Wallet.buildTransaction(): myUtxos is empty\n" << std::endl;
 		return transaction;
 	}
 
-	for (auto [txid, txOutput] : myUtxos){
+	for (auto it = myUtxos.begin(); it != myUtxos.end(); it++){
+		const auto& [txid, txOutput] = *it;
+
 		if (txOutput.amount >= amount){
 			utxo = txOutput;
 			txin.prevTxId = txid;
+			myUtxos.erase(it);
+			found = true;
 			break;
 		}
+	}
+
+	if (!found) {
+		std::cout << "Insufficient funds" << std::endl;
+		return transaction;
 	}
 	
 	txin.prevTxIndex = utxo.index;
@@ -118,12 +129,12 @@ Transaction Wallet::buildTransaction(std::string receiverPublicKey, int amount){
 	signTransaction(transaction);
 	
 	transaction.makeTxId();;
-	
+
 	return transaction;
 }
 
 void Wallet::buildSubmitTransaction(std::string receiverPublicKey, int amount){
-	updateMyUtxos();
+	//updateMyUtxos();
 	Transaction tx = buildTransaction(receiverPublicKey, amount);
 	submitTransaction(tx);
 }

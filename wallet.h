@@ -11,6 +11,7 @@ class Wallet{
 public:
         std::string publicKey;
 	std::vector<std::pair<std::string, TxOutput>> myUtxos;
+	//std::vector<std::pair<std::string, TxOutput>> pendingUtxos;
 	Node* connectedNode;
 
 	Wallet(Node* connectedNodeptr);
