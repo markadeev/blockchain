@@ -84,12 +84,14 @@ bool Node::containsUtxo(
 	// skip coinbase transaction
 	if (txid == "0" && index == 0) return true;
 
+	// search in outer map
 	auto txIt = utxoset.find(txid);
 	if (txIt == utxoset.end()){
 		std::cout << "Node.containsUtxo(): txid not found in utxoset" << std::endl;
 		return false;
 	}
 
+	// search in inner map
 	return txIt->second.find(index) != txIt->second.end();
 }
 //helper function for verifyBlock
@@ -123,6 +125,7 @@ bool Node::verifyBlock(Block& block){
 	}
 
 	// check for double spending
+	// create temporary copy of utxoset, add or remove utxos dynamically
 	auto tempUtxos = utxoset;
 	for (Transaction& tx : block.transactions){
 		for (TxInput& txin : tx.inputs){
@@ -135,6 +138,7 @@ bool Node::verifyBlock(Block& block){
 			eraseUtxo(tempUtxos, txin.prevTxId, txin.prevTxIndex);
 		}
 		// in case tx1 outputs are used by tx2 in the same block
+		// add txouts dynamically
 		for (TxOutput& txout : tx.outputs){
 			tempUtxos[tx.TxId][txout.index] = txout;
 		}

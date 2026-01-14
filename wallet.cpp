@@ -97,7 +97,7 @@ Transaction Wallet::buildTransaction(std::string receiverPublicKey, int amount){
 		if (txOutput.amount >= amount){
 			utxo = txOutput;
 			txin.prevTxId = txid;
-			myUtxos.erase(it);
+			//myUtxos.erase(it);
 			found = true;
 			break;
 		}
