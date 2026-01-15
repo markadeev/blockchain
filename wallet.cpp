@@ -78,6 +78,16 @@ void Wallet::printPrivateKey(){
 EVP_PKEY* Wallet::getPrivateKey(){
 	return pkey;
 }
+bool Wallet::isPending(std::string& txid, TxOutput& txOutput){
+	for (auto& [pendingId, pendingIndex] : pendingUtxos){
+		if (txid == pendingId && txOutput.index == pendingIndex){
+			std::cout << "Wallet.isPending(): " << txid << " utxo is pending, skip" << std::endl;
+			return true;
+		}
+	}	
+	return false;
+
+}
 Transaction Wallet::buildTransaction(std::string receiverPublicKey, int amount){
 	Transaction transaction;
 	TxInput txin;
@@ -91,20 +101,24 @@ Transaction Wallet::buildTransaction(std::string receiverPublicKey, int amount){
 		return transaction;
 	}
 
-	for (auto it = myUtxos.begin(); it != myUtxos.end(); it++){
-		const auto& [txid, txOutput] = *it;
+	for (auto& [txid, txOutput] : myUtxos){
 
 		if (txOutput.amount >= amount){
+
+			// if tx is pending skip 
+			if (isPending(txid, txOutput)) continue;
+			// else add to pending utxos
+			pendingUtxos.push_back({txid, txOutput.index});
+
 			utxo = txOutput;
 			txin.prevTxId = txid;
-			//myUtxos.erase(it);
 			found = true;
 			break;
 		}
 	}
 
 	if (!found) {
-		std::cout << "Insufficient funds" << std::endl;
+		std::cout << "Wallet.buildTransaction(): No utxos available" << std::endl;
 		return transaction;
 	}
 	
@@ -134,7 +148,7 @@ Transaction Wallet::buildTransaction(std::string receiverPublicKey, int amount){
 }
 
 void Wallet::buildSubmitTransaction(std::string receiverPublicKey, int amount){
-	//updateMyUtxos();
+	updateMyUtxos();
 	Transaction tx = buildTransaction(receiverPublicKey, amount);
 	submitTransaction(tx);
 }
@@ -186,6 +200,17 @@ void Wallet::updateMyUtxos(){
 	}
 	myUtxos = connectedNode->getMyUtxos(publicKey);
 
+
+}
+void Wallet::updatePendingUtxos(){
+	for (int i = pendingUtxos.size(), i >= 0; i--){
+		auto& [pendingId, pendingIndex] = pendingUtxos[i];
+		for (auto& [txid, txOutput] : myUtxos){
+			if (pendingId == txid && pendingIndex == txOutput.index){
+				pendingUtxos.erase(i);
+			}
+		}
+	}
 
 }
 void Wallet::printMyUtxos(){

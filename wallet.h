@@ -26,6 +26,7 @@ public:
 	void printPublicKey();
         void printPrivateKey();
 
+	bool isPending(std::string& txid, TxOutput& txout);
 	Transaction buildTransaction(std::string receiverPublicKey, int amount);
 	void scanUtxoSet(std::unordered_map<std::string, std::unordered_map<int, TxOutput>>& utxoset);
 	void signTransaction(Transaction& tx);
