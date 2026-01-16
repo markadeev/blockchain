@@ -34,6 +34,7 @@ public:
 	void buildSubmitTransaction(std::string receiverPublicKey, int amount);
 
 	void updateMyUtxos();
+	void updatePendingUtxos();
 	void printMyUtxos();
 
 

@@ -203,11 +203,11 @@ void Wallet::updateMyUtxos(){
 
 }
 void Wallet::updatePendingUtxos(){
-	for (int i = pendingUtxos.size(), i >= 0; i--){
+	for (int i = pendingUtxos.size(); i > 0; i--){
 		auto& [pendingId, pendingIndex] = pendingUtxos[i];
 		for (auto& [txid, txOutput] : myUtxos){
 			if (pendingId == txid && pendingIndex == txOutput.index){
-				pendingUtxos.erase(i);
+				pendingUtxos.erase(pendingUtxos.begin() + i);
 			}
 		}
 	}
