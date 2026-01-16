@@ -49,6 +49,7 @@ void Wallet::importPrivateKeyPEM(const std::string& pemkey){
 	getPublicKey();
 	myUtxos = {};
 	updateMyUtxos();
+	pendingUtxos = {};
 }
 
 
@@ -149,6 +150,8 @@ Transaction Wallet::buildTransaction(std::string receiverPublicKey, int amount){
 
 void Wallet::buildSubmitTransaction(std::string receiverPublicKey, int amount){
 	updateMyUtxos();
+	updatePendingUtxos();
+	
 	Transaction tx = buildTransaction(receiverPublicKey, amount);
 	submitTransaction(tx);
 }
@@ -203,13 +206,17 @@ void Wallet::updateMyUtxos(){
 
 }
 void Wallet::updatePendingUtxos(){
-	for (int i = pendingUtxos.size(); i > 0; i--){
+
+	bool isFound = false;
+	for (int i = pendingUtxos.size(); i-- > 0; ){
+		isFound = false;
 		auto& [pendingId, pendingIndex] = pendingUtxos[i];
 		for (auto& [txid, txOutput] : myUtxos){
 			if (pendingId == txid && pendingIndex == txOutput.index){
-				pendingUtxos.erase(pendingUtxos.begin() + i);
+				isFound = true;
 			}
 		}
+		if (!isFound) pendingUtxos.erase(pendingUtxos.begin() + i);
 	}
 
 }

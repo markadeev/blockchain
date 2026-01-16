@@ -164,6 +164,7 @@ void Node::updateUtxos(Block& block){
 }
 void Node::updateMempool(Block& block){
 	for (Transaction& tx : block.transactions){
+		// hacky ugly way to decrement loops the legacy way
 		for (int i = mempool.size(); i-- > 0;){
 			if (tx.TxId == mempool[i].TxId){
 				mempool.erase(mempool.begin() + i);
