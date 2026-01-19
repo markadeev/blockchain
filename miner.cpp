@@ -1,5 +1,6 @@
-#include "miner.h"
 #include "iostream"
+#include "miner.h"
+#include "settings.h"
 
 Miner::Miner()
 	:minerWallet(this)
@@ -27,7 +28,7 @@ Block Miner::mineBlock(Block& block){
 	int difficulty = 4;
 	std::string thisBlockHash = block.calculateHash();
 
-	while (thisBlockHash.substr(0, difficulty) != std::string(difficulty, '0')){
+	while (thisBlockHash.substr(0, MINING_DIFFICULTY) != std::string(MINING_DIFFICULTY, '0')){
 		block.nonce++;
 		thisBlockHash = block.calculateHash();
 	}

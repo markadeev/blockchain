@@ -1,5 +1,6 @@
 #include <iostream>
 #include <unordered_map>
+#include "settings.h"
 
 #include "node.h"
 
@@ -117,7 +118,7 @@ bool Node::verifyBlock(Block& block){
 	}
 	
 	std::string thisBlockHash = block.calculateHash();
-	if (thisBlockHash.substr(0, 4) != std::string(4, '0')) return false;
+	if (thisBlockHash.substr(0, MINING_DIFFICULTY) != std::string(MINING_DIFFICULTY, '0')) return false;
 
 
 	for (Transaction& tx : block.transactions){

@@ -1,8 +1,5 @@
 #pragma once
 #include <string>
-#include <cstdint>
-
-constexpr uint64_t FOUNDATION_AMOUNT = 1000000;
 
 // for the raw string of public key
 // it is important to include \n as the last char

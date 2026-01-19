@@ -19,9 +19,7 @@ int main(){
 	foundationWallet.importPrivateKeyPEM(FOUNDATION_PRIVKEY);
 
 	Wallet wallet1(&node1);
-	foundationWallet.buildSubmitTransaction(wallet1.publicKey, 100);
-	foundationWallet.buildSubmitTransaction(wallet1.publicKey, 300);
-	foundationWallet.buildSubmitTransaction(wallet1.publicKey, 1000000);
+	foundationWallet.buildSubmitTransaction(wallet1.publicKey, 1000);
 
 	miner1.mineBroadcastBlock();
 	node1.printBlockchain();

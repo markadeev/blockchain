@@ -135,11 +135,15 @@ Transaction Wallet::buildTransaction(std::string receiverPublicKey, int amount){
 
 	transaction.outputs.push_back(txout);
 
-	txout.index = 1;
-	txout.amount = change;
-	txout.publicKey = publicKey;
-	
-	transaction.outputs.push_back(txout);
+	if (change > 0) {
+		TxOutput changeTxOut;
+		changeTxOut.index = 1;
+		changeTxOut.amount = change;
+		changeTxOut.publicKey = publicKey;
+		
+		transaction.outputs.push_back(changeTxOut);
+	}
+
 
 	signTransaction(transaction);
 	
