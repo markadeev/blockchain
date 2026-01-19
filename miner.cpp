@@ -10,13 +10,12 @@ Block Miner::buildBlock(){
 	Block block;
 	block.prevBlockHash = blockchain.lastBlock().calculateHash();
 
-	int blockTransactionSize = 5;
-	for (int i = 0; i < blockTransactionSize && i < mempool.size(); i++){
+	for (int i = 0; i < BLOCK_SIZE && i < mempool.size(); i++){
 		block.transactions.push_back(mempool[i]);
 
 	}
 
-	Transaction coinbaseTx = buildCoinbaseTransaction(minerWallet.publicKey, 50);
+	Transaction coinbaseTx = buildCoinbaseTransaction(minerWallet.publicKey, MINING_REWARD);
 	block.transactions.push_back(coinbaseTx);
 
 	block.MerkleRoot = block.calculateMerkleRoot();

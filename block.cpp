@@ -14,8 +14,6 @@ Block::Block()
 	MerkleRoot(""),
 	transactions({})
 {
-	//optional mineBlock function
-	//coinbase transaction to foundation wallet
 }
 
 Block::Block(std::string prevBlockHash)
@@ -25,7 +23,6 @@ Block::Block(std::string prevBlockHash)
 	MerkleRoot(""),
 	transactions({})
 {
-	//optional mineBlock function
 }
 std::string Block::serializeBlock(){
 	std::stringstream ss;

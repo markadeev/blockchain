@@ -17,9 +17,12 @@ public:
 	
 	std::string serializeBlock();
 	void print();
+
+	// helper function to hash strings
+	std::string sha256(std::string is);
+	// serialize and hash
 	std::string calculateHash();
 	std::string calculateMerkleRoot();
-	std::string sha256(std::string is);
 
 	void mineBlock();
 
