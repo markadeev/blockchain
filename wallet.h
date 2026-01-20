@@ -55,11 +55,24 @@ public:
 	// sign and make transaction ID
 	Transaction buildTransaction(std::string receiverPublicKey, int amount);
 
+	// serialize transaction, hash, sign with wallet privateKey
+	// convert raw signature to hex string
+	// assign this signature to all transaction inputs
 	void signTransaction(Transaction& tx);
+	// prompt connectedNode->receiveTransaction(transaction)
+	// which verifies and broadcasts the transaction to all connected nodes
 	void submitTransaction(Transaction& tx);
+	// update wallet utxos, update pending utxos,
+	// build transaction, submit transaction to the connected node
 	void buildSubmitTransaction(std::string receiverPublicKey, int amount);
 
+	// prompt connectedNode->getMyUtxos(wallet.publicKey)
+	// node returns a vector with wallet's utxos
+	// assign it to myUtxos
 	void updateMyUtxos();
+	// if a transaction is not in wallet utxos anymore 
+	// it has been confirmed by the blockchain
+	// threfore gets deleted
 	void updatePendingUtxos();
 	void printMyUtxos();
 

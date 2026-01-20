@@ -203,12 +203,14 @@ void Wallet::updateMyUtxos(){
 void Wallet::updatePendingUtxos(){
 
 	bool isFound = false;
+	// iterate backwards in order to erase vector elements
 	for (int i = pendingUtxos.size(); i-- > 0; ){
 		isFound = false;
 		auto& [pendingId, pendingIndex] = pendingUtxos[i];
 		for (auto& [txid, txOutput] : myUtxos){
 			if (pendingId == txid && pendingIndex == txOutput.index){
 				isFound = true;
+				break;
 			}
 		}
 		if (!isFound) pendingUtxos.erase(pendingUtxos.begin() + i);
