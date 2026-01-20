@@ -6,7 +6,6 @@
 #include <iomanip>
 #include "block.h"
 
-// constructor
 Block::Block()
 	:prevBlockHash("0"),
 	timestamp(std::time(nullptr)),

@@ -3,7 +3,6 @@
 #include <openssl/sha.h>
 #include <openssl/pem.h>
 #include <openssl/evp.h>
-//#include <vector>
 #include <iostream>
 #include <iomanip>
 #include "transaction.h"
@@ -76,8 +75,6 @@ bool Transaction::verifyTxSignature(const std::string& publicKeyPEM){
 	return true;
 }
 void Transaction::makeTxId(){
-	//std::string data = serializeTransaction();
-	// add txins signatures to data
 	std::stringstream temp;
 	for (auto& txin : inputs){
 		temp << txin.signature;

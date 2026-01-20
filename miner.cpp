@@ -15,7 +15,7 @@ Block Miner::buildBlock(){
 
 	}
 
-	Transaction coinbaseTx = buildCoinbaseTransaction(minerWallet.publicKey, MINING_REWARD);
+	Transaction coinbaseTx = buildCoinbaseTransaction();
 	block.transactions.push_back(coinbaseTx);
 
 	block.MerkleRoot = block.calculateMerkleRoot();
@@ -24,7 +24,6 @@ Block Miner::buildBlock(){
 }
 Block Miner::mineBlock(Block& block){
 
-	int difficulty = 4;
 	std::string thisBlockHash = block.calculateHash();
 
 	while (thisBlockHash.substr(0, MINING_DIFFICULTY) != std::string(MINING_DIFFICULTY, '0')){
@@ -37,7 +36,7 @@ Block Miner::mineBlock(Block& block){
 		addBlockToChain(block);
 		updateMempool(block);
 		updateUtxos(block);
-		minerWallet.scanUtxoSet(utxoset);
+		minerWallet.updateMyUtxos();
 	}
 
 	return block;
@@ -48,7 +47,7 @@ void Miner::mineBroadcastBlock(){
 	broadcastBlock(block);
 
 }
-Transaction Miner::buildCoinbaseTransaction(std::string minerWalletPublicKey, int reward){
+Transaction Miner::buildCoinbaseTransaction(){
 	Transaction transaction;
 
 	TxInput txin;
@@ -60,8 +59,8 @@ Transaction Miner::buildCoinbaseTransaction(std::string minerWalletPublicKey, in
 
 	TxOutput txout;
 	txout.index = 0;
-	txout.amount = reward;
-	txout.publicKey = minerWalletPublicKey;
+	txout.amount = MINING_REWARD;
+	txout.publicKey = minerWallet.publicKey;
 
 	transaction.inputs.push_back(txin);
 	transaction.outputs.push_back(txout);

@@ -12,7 +12,6 @@ Wallet::Wallet(Node* connectedNodeptr)
 	connectedNode(connectedNodeptr)
 {
 	generateKeys();
-	updateMyUtxos();
 }
 
 void Wallet::generateKeys() {
@@ -158,14 +157,6 @@ void Wallet::buildSubmitTransaction(std::string receiverPublicKey, int amount){
 	
 	Transaction tx = buildTransaction(receiverPublicKey, amount);
 	submitTransaction(tx);
-}
-void Wallet::scanUtxoSet(std::unordered_map<std::string, std::unordered_map<int, TxOutput>>& utxoset){
-	myUtxos = {};
-	for (auto& [txid, voutmap] : utxoset){
-		for (auto& [index, txout] : voutmap){
-			if (txout.publicKey == publicKey) myUtxos.push_back({txid, txout});
-		}
-	}
 }
 
 void Wallet::signTransaction(Transaction& tx){

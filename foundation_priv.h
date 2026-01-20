@@ -4,6 +4,8 @@
 // against all warnings, and only for illustration purposes, I include the private key here
 // in any real application, it should be strictly secured
 
+// for the raw string of public key it is important to include \n as the last char
+// otherwise publicKey comparison fails
 const std::string FOUNDATION_PRIVKEY =
     R"(-----BEGIN PRIVATE KEY-----
 MIGEAgEAMBAGByqGSM49AgEGBSuBBAAKBG0wawIBAQQgZ1GiMjKav7X7bwEf3iGk
