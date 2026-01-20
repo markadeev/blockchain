@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-//#include "block.h"
 #include "blockchain.h"
 #include "foundation_pub.h"
 #include "settings.h"

@@ -12,26 +12,31 @@ Node::Node()
 
 bool Node::verifyTransaction(Transaction &tx){
 	
+	// empty inputs means invalid transaction
 	if (tx.inputs.empty()) return false;
 
-	// coinbase transaction
+	// check if coinbase transaction
 	if (tx.inputs[0].prevTxId == "0" && tx.inputs[0].prevTxIndex == 0) return true;
 
 	if (utxoset.empty()) return false;
 
-	// must be wrapped correctly
-
 	std::string data = tx.serializeTransaction();
 
 	for (TxInput& txin : tx.inputs){
+
+		// check if it exists in utxoset
+		
 		auto itOuter = utxoset.find(txin.prevTxId);
 		if (itOuter == utxoset.end()) return false;
+
 		auto& innerMap = itOuter->second;
 		auto itInner = innerMap.find(txin.prevTxIndex);
 		if (itInner == innerMap.end()) return false;
 
 		TxOutput& prevTxOut = itInner->second;
 		
+		
+		// verify signature
 		std::string senderPublicKey = prevTxOut.publicKey;
 		if (!txin.verifyTxInputSignature(senderPublicKey, data)) return false;
 	}
@@ -165,7 +170,7 @@ void Node::updateUtxos(Block& block){
 }
 void Node::updateMempool(Block& block){
 	for (Transaction& tx : block.transactions){
-		// hacky ugly way to decrement loops the legacy way
+		// legacy way to decrement loops
 		for (int i = mempool.size(); i-- > 0;){
 			if (tx.TxId == mempool[i].TxId){
 				mempool.erase(mempool.begin() + i);
