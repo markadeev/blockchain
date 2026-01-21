@@ -13,14 +13,14 @@ public:
 	// wallet's connected node is Miner itself
 	Miner();
 
-	// create block, connect it to the last block on chain,
+	// create block, connect it to the last block on the chain,
 	// add BLOCK_SIZE amount of transactions from the mempool
 	// add coinbase transaction with MINING_REWARD for minerWallet
 	// calculate MerkleRoot
 	Block buildBlock();
 	// helper function for buildBlock()
 	// create a coinbase transaction with MINING_REWARD
-	// to the minerWallet with unique Transaction ID
+	// to the minerWallet with a unique Transaction ID
 	Transaction buildCoinbaseTransaction();
 	// increment nonce and hash block
 	// until it has the desired MINING_DIFFICULTY amount of leading zeros

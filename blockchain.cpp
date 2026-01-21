@@ -33,6 +33,9 @@ void Blockchain::addBlock(Block& block){
 bool Blockchain::isEmpty(){
 	return chain.empty();	
 }
+int Blockchain::chainSize(){
+	return chain.size();
+}
 void Blockchain::print(){
 	std::cout << "Blockchain:" << std::endl;
 	for (int i = 0; i < chain.size() ; i++){

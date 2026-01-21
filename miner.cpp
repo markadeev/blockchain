@@ -55,7 +55,7 @@ Transaction Miner::buildCoinbaseTransaction(){
 	txin.prevTxIndex = 0;
 	// making TxId unique
 	// using block height instead of signature
-	txin.signature = std::to_string(blockchain.chain.size() + 1);
+	txin.signature = std::to_string(blockchain.chainSize() + 1);
 
 	TxOutput txout;
 	txout.index = 0;

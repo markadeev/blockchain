@@ -43,11 +43,12 @@ public:
 	// verify transactions, check double spending
 	bool verifyBlock(Block& block);
 
-	// helper function for verifyBlock() to check double spending
+	// helper function for verifyBlock() to check for double spending
 	bool containsUtxo(const std::unordered_map<std::string, std::unordered_map<int, TxOutput>>& utxoset, const std::string& txid, int index);
-	// helper function for verifyBlock() to check double spending
+	// helper function for verifyBlock() to check for double spending
 	void eraseUtxo(std::unordered_map<std::string, std::unordered_map<int, TxOutput>>& utxoset, const std::string& txid, int index);
 
+	// add block to the end of the chain
 	void addBlockToChain(Block& block);
 
 	// loop over transactions in the new block, delete used utxos, add new ones
@@ -59,6 +60,7 @@ public:
 	// wallet.updateMyUtxos() prompts connectedNode->getMyUtxos(wallet.publicKey)
 	// node returns a list of utxos with the corresponding publicKey to the wallet
 	std::vector<std::pair<std::string, TxOutput>> getMyUtxos(std::string publicKey);
+	// print functions for illustration and debugging
 	void printUtxoset();
 	void printMempool();
 	void printBlockchain();
