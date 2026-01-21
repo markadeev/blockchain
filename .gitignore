@@ -1,0 +1,10 @@
+# ignore object files
+*.o
+
+# ignore compiled executable
+main
+
+# ignore temporary files
+*.swp
+*.tmp
+
