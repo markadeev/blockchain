@@ -19,15 +19,20 @@ OBJ = $(SRC:.cpp = .o)
 TARGET = main
 
 # link step
+# how to make the main executable from all the object files
 $(TARGET): $(OBJ)
+	# g++ src/main.o src/block.o ... -o main -lssl -lcrypto
 	$(CXX) $(OBJ) -o $(TARGET) $(LDFLAGS)
 
 # compile step
+# how to make an object file from the corresponding .cpp file
 %.o: %.cpp
+	# g++ -Wall -Wextra -Iinclude -Ikeys -c src/block.cpp -o src/block.o
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# clean build files
+# remove all compiled files
 clean:
 	rm -f $(OBJ) $(TARGET)
 
+# tells Make that all and clean are not real files
 .PHONY: all clean
