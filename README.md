@@ -1,10 +1,10 @@
 # LearnChain
 A simplified blockchain learning project.
 
-Modeled after Bitcoin.  
-UTXO-based transaction model.  
-Networking is simplified to interactions between objects.  
-You can create wallets, nodes and miners, send transactions and mine blocks.  
+- Modeled after Bitcoin.  
+- UTXO-based transaction model.  
+- Networking is simplified to interactions between objects.  
+- You can create wallets, nodes and miners, send transactions and mine blocks.  
 
 Coins are created in two ways: 
 - each node's blockchain has a genesis block with a foundation transaction.
@@ -120,6 +120,14 @@ MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAElEAgfx58VHDFjchpyU6KjLnnxjsOntxv
 WbimTt9AmU3bWsOYqMEWIywQWYRsxOv40oyZjC0ONl6NzrduiY+OlQ==
 -----END PUBLIC KEY-----
 ```
+## Configuration
+LearnChain can be configured via include/settings.h
+
+FOUNDATION AMOUNT initial amount of coins in the genesis block for foundation wallet  
+BLOCK_SIZE amount of transactions taken from the mempool and added to the block  
+MINING_DIFFICULTY amount of leading zeroes required in the block hash  
+MINING_REWARD reward paid to miners in the coinbase transaction  
+
 ## Contributing
 Pull requests are welcome.
 
