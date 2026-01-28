@@ -124,7 +124,7 @@ WbimTt9AmU3bWsOYqMEWIywQWYRsxOv40oyZjC0ONl6NzrduiY+OlQ==
 LearnChain can be configured via include/settings.h
 
 FOUNDATION AMOUNT  - initial amount of coins in the genesis block for foundation wallet.  
-BLOCK_SIZE amount  - of transactions taken from the mempool and added to the block.  
+BLOCK_SIZE - amount of transactions taken from the mempool and added to the block.  
 MINING_DIFFICULTY  - amount of leading zeroes required in the block hash.  
 MINING_REWARD  - reward paid to miners in the coinbase transaction.  
 
