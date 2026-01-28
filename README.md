@@ -30,7 +30,7 @@ cd blockchain
 make  
 ```
 
-## Usage
+## Example usage
 To create objects and interact between them, open and edit src/main.cpp
 ```cpp
 // create node
