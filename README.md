@@ -63,7 +63,7 @@ miner1.minerBroadcastBlock();
 // select a node and print it's blockchain
 node1.printBlockchain();
 ```
-##Example output
+## Example output
 ```text
 Blockchain:
 Block 0
