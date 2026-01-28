@@ -20,6 +20,14 @@ A miner is a node's subclass. It takes transactions from its mempool, builds the
 
 Peer nodes verify the block and broadcast it to their respective nodes.
 
+```mermaid
+sequenceDiagram
+    Wallet->>Node: submit transaction
+    Node->>Peers: broadcast tx
+    Miner->>Node: mine block
+    Node->>Peers: broadcast block
+```
+
 
 ## Installation
 ```bash
