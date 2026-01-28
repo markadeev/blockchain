@@ -5,17 +5,21 @@ Modeled after Bitcoin.
 Networking is simplified to interactions between objects.
 You can create wallets, nodes and miners.
 
-A wallet creates a transaction using its UTXO
-and submits it to its connected node.
+Coins are created two ways: 
+- each genesis block has a transfer of a certain FOUNDATION_AMOUNT to the foundation wallet.
+- during mining, miners add coinbase transaction with a MINING_REWARD to their minerWallet.
+
+A wallet updates the list of its UTXOs from the connected node's utxoset.
+It creates transaction using its UTXO and submits it to the connected node.
+
 The node verifies it and broadcasts it to its respective peer nodes.
 
 Each node tracks its own local utxoset, mempool and blockchain.
 
-A miner is a node's subclass.
-It takes transactions from its mempool, 
-builds the block, mines the block, and broadcasts it to its peer nodes.
+A miner is a node's subclass. It takes transactions from its mempool, builds the block, mines the block, and broadcasts it to its peer nodes.
 
 Peer nodes verify the block and broadcast it to their respective nodes.
+
 
 ## Installation
 ```bash
