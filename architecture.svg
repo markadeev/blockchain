@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" width="28.385826in" height="20.078741in" viewBox="0 0 2043.7795 1445.6693">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" width="9.84252in" height="7.3818893in" viewBox="0 0 708.66144 531.49603">
  <v:documentProperties>
   <v:userDefs>
    <v:ud v:nameU="msvNoAutoConnect" v:val="1"/>
@@ -8,206 +8,206 @@
  <g id="SFixTitle"/>
  <g id="SContent">
   <g>
-   <g transform="matrix(1,0,0,-1,0,1445.6693)">
-    <g transform="matrix(1,0,0,1,910.62994,995.6693)" v:mID="1">
+   <g transform="matrix(1,0,0,-1,0,531.49603)">
+    <g transform="matrix(1,0,0,1,154.48819,375.59055)" v:mID="1">
      <title>Shape1</title>
      <path d="M0,35.433071136 L77.95275116,35.433071136 L77.95275116,35.433071136 L77.95275116,0 L77.95275116,0 L0,0 L0,0 L0,35.433071136 Z" stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="#FFFFFF"  fill-rule="evenodd"/>
      <g transform="matrix(1,0,0,1,1.4173203,1.4173241)">
-      <text x="26.567343" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.773857)">Wallet</text>
+      <text x="27.483316" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.567636)">Wallet</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,1085.6694,995.6693)" v:mID="2">
+    <g transform="matrix(1,0,0,1,329.52756,375.59055)" v:mID="2">
      <title>Shape2</title>
      <path d="M0,35.433071136 L77.95275116,35.433071136 L77.95275116,35.433071136 L77.95275116,0 L77.95275116,0 L0,0 L0,0 L0,35.433071136 Z" stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="#FFFFFF"  fill-rule="evenodd"/>
      <g transform="matrix(1,0,0,1,1.4173203,1.4173241)">
-      <text x="26.563314" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.773857)">Node1</text>
+      <text x="27.479626" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.567636)">Node1</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,1266.3779,995.6693)" v:mID="3">
+    <g transform="matrix(1,0,0,1,510.2362,375.59055)" v:mID="3">
      <title>Shape3</title>
      <path d="M0,35.433071136 L77.95275116,35.433071136 L77.95275116,35.433071136 L77.95275116,0 L77.95275116,0 L0,0 L0,0 L0,35.433071136 Z" stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="#FFFFFF"  fill-rule="evenodd"/>
      <g transform="matrix(1,0,0,1,1.4173203,1.4173241)">
-      <text x="26.563314" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.773857)">Node2</text>
+      <text x="27.479626" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.567636)">Node2</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,141.7323,1012.6772)" v:mID="4">
+    <g transform="matrix(1,0,0,1,53.149605,215.43307)" v:mID="4">
      <title>Dynamic connector.4</title>
      <g transform="matrix(1,0,0,1,0,0)" v:mID="4">
       <title>Dynamic connector.4</title>
-      <path d="M1118.885742188,-2.171338797 L1124.645751953,0.708661437 L1118.885742188,3.588661671 M1118.885742188,-2.171338797 C1120.037597656,-0.443338633 1120.037597656,1.860661507 1118.885742188,3.588661671 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" opacity="0" transform="matrix(1,0,0,1,0,0)"/>
-      <path d="M1021.889770508,0.708661437 L1124.645751953,0.708661437 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none" stroke-opacity="0"/>
+      <path d="M451.326629639,174.994018555 L457.086639404,177.874008179 L451.326629639,180.753997803 M451.326629639,174.994018555 C452.478607178,176.722000122 452.478607178,179.026016235 451.326629639,180.753997803 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" opacity="0" transform="matrix(1,0,0,1,0,0)"/>
+      <path d="M354.330718994,177.874008179 L457.086639404,177.874008179 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none" stroke-opacity="0"/>
      </g>
-     <path d="M1118.885742188,-2.171338797 L1124.645751953,0.708661437 L1118.885742188,3.588661671 M1118.885742188,-2.171338797 C1120.037597656,-0.443338633 1120.037597656,1.860661507 1118.885742188,3.588661671 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(1,0,0,1,0,0)"/>
-     <path d="M1021.889770508,0.708661437 L1124.645751953,0.708661437 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
+     <path d="M451.326629639,174.994018555 L457.086639404,177.874008179 L451.326629639,180.753997803 M451.326629639,174.994018555 C452.478607178,176.722000122 452.478607178,179.026016235 451.326629639,180.753997803 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(1,0,0,1,0,0)"/>
+     <path d="M354.330718994,177.874008179 L457.086639404,177.874008179 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
     </g>
-    <g transform="matrix(1,0,0,1,910.62994,1070.0787)" v:mID="5">
+    <g transform="matrix(1,0,0,1,154.48819,450)" v:mID="5">
      <title>Shape5</title>
      <path d="M0,35.433071136 L77.95275116,35.433071136 L77.95275116,35.433071136 L77.95275116,0 L77.95275116,0 L0,0 L0,0 L0,35.433071136 Z" stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="#FFFFFF"  fill-rule="evenodd"/>
      <g transform="matrix(1,0,0,1,1.4173203,1.4173241)">
-      <text x="26.567343" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.773857)">Wallet</text>
+      <text x="27.483316" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.567636)">Wallet</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,1085.6694,1070.0787)" v:mID="6">
+    <g transform="matrix(1,0,0,1,329.52756,450)" v:mID="6">
      <title>Shape6</title>
      <path d="M0,35.433071136 L77.95275116,35.433071136 L77.95275116,35.433071136 L77.95275116,0 L77.95275116,0 L0,0 L0,0 L0,35.433071136 Z" stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="#FFFFFF"  fill-rule="evenodd"/>
      <g transform="matrix(1,0,0,1,1.4173203,1.4173241)">
-      <text x="9.956926" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.773857)">Connected Node</text>
+      <text x="12.257105" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.567636)">Connected Node</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,988.5827,1020.4724)" v:mID="7">
+    <g transform="matrix(1,0,0,1,232.44096,400.39368)" v:mID="7">
      <title>Shape7</title>
-     <g transform="matrix(1,0,0,1,1.4173241,0.3543315)">
-      <text x="12.972952" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,7.4352756)">submitTransaction()</text>
+     <g transform="matrix(1,0,0,1,1.4173241,0.70866156)">
+      <text x="15.759984" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,6.8747244)">submitTransaction()</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,1082.1261,1039.6063)" v:mID="8">
+    <g transform="matrix(1,0,0,1,325.98425,419.52753)" v:mID="8">
      <title>Shape8</title>
-     <g transform="matrix(1,0,0,1,1.4173241,0.3543315)">
-      <text x="9.03951" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,7.4352756)">verifyTransaction()</text>
+     <g transform="matrix(1,0,0,1,1.4173241,0.70866156)">
+      <text x="11.711415" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,6.8747244)">verifyTransaction()</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,1160.0786,1020.4724)" v:mID="9">
+    <g transform="matrix(1,0,0,1,403.93704,400.39368)" v:mID="9">
      <title>Shape9</title>
-     <g transform="matrix(1,0,0,1,1.4173203,0.3543315)">
-      <text x="13.714414" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,7.4352756)">broadcastTransaction()</text>
+     <g transform="matrix(1,0,0,1,1.4173203,0.70866156)">
+      <text x="16.882568" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,6.8747244)">broadcastTransaction()</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,1266.3779,953.1496)" v:mID="10">
+    <g transform="matrix(1,0,0,1,510.2362,333.0709)" v:mID="10">
      <title>Shape10</title>
      <path d="M0,35.433071136 L77.95275116,35.433071136 L77.95275116,35.433071136 L77.95275116,0 L77.95275116,0 L0,0 L0,0 L0,35.433071136 Z" stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="#FFFFFF"  fill-rule="evenodd"/>
      <g transform="matrix(1,0,0,1,1.4173203,1.4173241)">
-      <text x="26.563314" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.773857)">Node3</text>
+      <text x="27.479626" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.567636)">Node3</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,141.7323,970.86615)" v:mID="11">
+    <g transform="matrix(1,0,0,1,53.149605,173.62206)" v:mID="11">
      <title>Dynamic connector.11</title>
-     <path d="M1118.885742188,-2.880000114 L1124.645751953,0 L1118.885742188,2.880000114 M1118.885742188,-2.879999876 C1120.037597656,-1.15200007 1120.037597656,1.15200007 1118.885742188,2.879999876 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(1,0,0,1,0,0)"/>
-     <path d="M1021.889770508,42.519687653 L1073.267700195,42.519687653 L1073.267700195,42.519687653 L1073.267700195,0 L1073.267700195,0 L1124.645751953,0 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
+     <path d="M451.326629639,174.285354614 L457.086639404,177.165359497 L451.326629639,180.045349121 M451.326629639,174.285354614 C452.478607178,176.01335144 452.478607178,178.317352295 451.326629639,180.045349121 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(1,0,0,1,0,0)"/>
+     <path d="M354.330718994,219.685043335 L405.708648682,219.685043335 L405.708648682,219.685043335 L405.708648682,177.165359497 L405.708648682,177.165359497 L457.086639404,177.165359497 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
     </g>
-    <g transform="matrix(1,0,0,1,912.04724,875.55115)" v:mID="12">
+    <g transform="matrix(1,0,0,1,155.90552,255.47243)" v:mID="12">
      <title>Shape12</title>
      <path d="M0,35.433071136 L77.95275116,35.433071136 L77.95275116,35.433071136 L77.95275116,0 L77.95275116,0 L0,0 L0,0 L0,35.433071136 Z" stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="#FFFFFF"  fill-rule="evenodd"/>
      <g transform="matrix(1,0,0,1,1.4173203,1.4173241)">
-      <text x="27.479626" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.773857)">Miner</text>
+      <text x="28.319578" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.567636)">Miner</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,1082.1261,875.55115)" v:mID="13">
+    <g transform="matrix(1,0,0,1,325.98425,255.47243)" v:mID="13">
      <title>Shape13</title>
      <path d="M0,35.433071136 L77.95275116,35.433071136 L77.95275116,35.433071136 L77.95275116,0 L77.95275116,0 L0,0 L0,0 L0,35.433071136 Z" stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="#FFFFFF"  fill-rule="evenodd"/>
      <g transform="matrix(1,0,0,1,1.4173203,1.4173241)">
-      <text x="26.563314" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.773857)">Node1</text>
+      <text x="27.479626" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.567636)">Node1</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,-31.889763,892.5591)" v:mID="14">
+    <g transform="matrix(1,0,0,1,-120.47244,95.31496)" v:mID="14">
      <title>Dynamic connector.14</title>
-     <path d="M1108.255737305,-2.171338797 L1114.01574707,0.708661437 L1108.255737305,3.588661671 M1108.255737305,-2.171338797 C1109.407836914,-0.443338633 1109.407836914,1.860661507 1108.255737305,3.588661671 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(1,0,0,1,0,0)"/>
-     <path d="M1021.889770508,0.708661437 L1114.01574707,0.708661437 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
+     <path d="M440.696716309,174.994018555 L446.456695557,177.874008179 L440.696716309,180.753997803 M440.696716309,174.994018555 C441.848693848,176.722000122 441.848693848,179.026016235 440.696716309,180.753997803 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(1,0,0,1,0,0)"/>
+     <path d="M354.330718994,177.874008179 L446.456695557,177.874008179 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
     </g>
-    <g transform="matrix(1,0,0,1,919.13385,914.1732)" v:mID="15">
+    <g transform="matrix(1,0,0,1,162.99213,294.0945)" v:mID="15">
      <title>Shape15</title>
      <g transform="matrix(1,0,0,1,1.4173222,1.4173231)">
-      <text x="9.395259" y="0" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,11.687244)">buildBlock()</text>
-      <text x="9.626854" y="9.898582" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,11.687244)">mineBlock()</text>
+      <text x="11.15169" y="0" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,11.481024)">buildBlock()</text>
+      <text x="11.363985" y="9.073701" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,11.481024)">mineBlock()</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,988.5827,900.3544)" v:mID="16">
+    <g transform="matrix(1,0,0,1,232.44095,280.27557)" v:mID="16">
      <title>Shape16</title>
-     <g transform="matrix(1,0,0,1,1.4173241,0.3543315)">
-      <text x="12.700729" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,7.4352756)">broadcastBlock()</text>
+     <g transform="matrix(1,0,0,1,1.4173241,0.70866156)">
+      <text x="15.067533" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,6.8747244)">broadcastBlock()</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,1089.2126,919.4882)" v:mID="17">
+    <g transform="matrix(1,0,0,1,333.07086,299.40945)" v:mID="17">
      <title>Shape17</title>
-     <g transform="matrix(1,0,0,1,1.4173222,0.3543315)">
-      <text x="8.0258255" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,7.4352756)">verifyBlock()</text>
+     <g transform="matrix(1,0,0,1,1.4173222,0.70866156)">
+      <text x="9.896378" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,6.8747244)">verifyBlock()</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,141.7323,892.5591)" v:mID="18">
+    <g transform="matrix(1,0,0,1,53.149605,95.31496)" v:mID="18">
      <title>Dynamic connector.18</title>
-     <path d="M1118.885742188,-2.171338797 L1124.645751953,0.708661437 L1118.885742188,3.588661671 M1118.885742188,-2.171338797 C1120.037597656,-0.443338633 1120.037597656,1.860661507 1118.885742188,3.588661671 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(1,0,0,1,0,0)"/>
-     <path d="M1021.889770508,0.708661437 L1124.645751953,0.708661437 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
+     <path d="M451.326629639,174.994018555 L457.086639404,177.874008179 L451.326629639,180.753997803 M451.326629639,174.994018555 C452.478607178,176.722000122 452.478607178,179.026016235 451.326629639,180.753997803 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(1,0,0,1,0,0)"/>
+     <path d="M354.330718994,177.874008179 L457.086639404,177.874008179 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
     </g>
-    <g transform="matrix(1,0,0,1,138.18896,850.74805)" v:mID="20">
+    <g transform="matrix(1,0,0,1,49.6063,53.503937)" v:mID="20">
      <title>Dynamic connector.20</title>
-     <path d="M1122.428955078,-2.880000114 L1128.188964844,0 L1122.428955078,2.880000114 M1122.428955078,-2.879999876 C1123.580932617,-1.15200007 1123.580932617,1.15200007 1122.428955078,2.879999876 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(1,0,0,1,0,0)"/>
-     <path d="M1021.889770508,42.519687653 L1075.039428711,42.519687653 L1075.039428711,42.519687653 L1075.039428711,0 L1075.039428711,0 L1128.188964844,0 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
+     <path d="M454.869934082,174.285354614 L460.62991333,177.165359497 L454.869934082,180.045349121 M454.869934082,174.285354614 C456.021881104,176.01335144 456.021881104,178.317352295 454.869934082,180.045349121 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(1,0,0,1,0,0)"/>
+     <path d="M354.330718994,219.685043335 L407.480285645,219.685043335 L407.480285645,219.685043335 L407.480285645,177.165359497 L407.480285645,177.165359497 L460.62991333,177.165359497 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
     </g>
-    <g transform="matrix(1,0,0,1,1266.3779,875.55115)" v:mID="19">
+    <g transform="matrix(1,0,0,1,510.2362,255.47243)" v:mID="19">
      <title>Shape19</title>
      <path d="M0,35.433071136 L77.95275116,35.433071136 L77.95275116,35.433071136 L77.95275116,0 L77.95275116,0 L0,0 L0,0 L0,35.433071136 Z" stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="#FFFFFF"  fill-rule="evenodd"/>
      <g transform="matrix(1,0,0,1,1.4173203,1.4173241)">
-      <text x="26.563314" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.773857)">Node2</text>
+      <text x="27.479626" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.567636)">Node2</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,1170.7086,900.3544)" v:mID="22">
+    <g transform="matrix(1,0,0,1,414.56696,280.27557)" v:mID="22">
      <title>Shape22</title>
-     <g transform="matrix(1,0,0,1,1.4173241,0.3543315)">
-      <text x="12.700729" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,7.4352756)">broadcastBlock()</text>
+     <g transform="matrix(1,0,0,1,1.4173241,0.70866156)">
+      <text x="15.067533" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,6.8747244)">broadcastBlock()</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,1266.3779,833.0315)" v:mID="21">
+    <g transform="matrix(1,0,0,1,510.2362,212.95274)" v:mID="21">
      <title>Shape21</title>
      <path d="M0,35.433071136 L77.95275116,35.433071136 L77.95275116,35.433071136 L77.95275116,0 L77.95275116,0 L0,0 L0,0 L0,35.433071136 Z" stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="#FFFFFF"  fill-rule="evenodd"/>
      <g transform="matrix(1,0,0,1,1.4173203,1.4173241)">
-      <text x="26.563314" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.773857)">Node3</text>
+      <text x="27.479626" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,18.567636)">Node3</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,908.5039,1116.1417)" v:mID="23">
+    <g transform="matrix(1,0,0,1,152.36221,496.06296)" v:mID="23">
      <title>Shape23</title>
-     <g transform="matrix(1,0,0,1,1.4173241,0.3543315)">
-      <text x="10.408943" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,7.4352756)">buildTransaction()</text>
+     <g transform="matrix(1,0,0,1,1.4173241,0.70866156)">
+      <text x="12.966727" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,6.8747244)">buildTransaction()</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,988.5827,1070.0787)" v:mID="24">
+    <g transform="matrix(1,0,0,1,232.44096,449.99997)" v:mID="24">
      <title>Shape24</title>
-     <g transform="matrix(1,0,0,1,1.4173241,0.3543315)">
-      <text x="12.972952" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,7.4352756)">submitTransaction()</text>
+     <g transform="matrix(1,0,0,1,1.4173241,0.70866156)">
+      <text x="15.759984" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,6.8747244)">submitTransaction()</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,997.0866,1094.882)" v:mID="25">
+    <g transform="matrix(1,0,0,1,240.94489,474.80316)" v:mID="25">
      <title>Shape25</title>
-     <g transform="matrix(1,0,0,1,1.4173241,0.3543315)">
-      <text x="11.778376" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,7.4352756)">updateMyUtxos()</text>
+     <g transform="matrix(1,0,0,1,1.4173241,0.70866156)">
+      <text x="14.222042" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,6.8747244)">updateMyUtxos()</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,1266.378,1039.6063)" v:mID="26">
+    <g transform="matrix(1,0,0,1,510.23624,419.52753)" v:mID="26">
      <title>Shape26</title>
-     <g transform="matrix(1,0,0,1,1.4173241,0.3543315)">
-      <text x="9.03951" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,7.4352756)">verifyTransaction()</text>
+     <g transform="matrix(1,0,0,1,1.4173241,0.70866156)">
+      <text x="11.711415" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,6.8747244)">verifyTransaction()</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,1273.4645,919.4882)" v:mID="27">
+    <g transform="matrix(1,0,0,1,517.3228,299.40945)" v:mID="27">
      <title>Shape27</title>
-     <g transform="matrix(1,0,0,1,1.4173222,0.3543315)">
-      <text x="8.0258255" y="4.949291" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,7.4352756)">verifyBlock()</text>
+     <g transform="matrix(1,0,0,1,1.4173222,0.70866156)">
+      <text x="9.896378" y="4.5368505" class="TextStyle0" fill="#000000" opacity="1" transform="matrix(1,0,0,-1,0,6.8747244)">verifyBlock()</text>
      </g>
     </g>
-    <g transform="matrix(1,0,0,1,63.779526,1087.0865)" v:mID="28">
+    <g transform="matrix(1,0,0,1,-24.803148,289.8425)" v:mID="28">
      <title>Dynamic connector.28</title>
-     <path d="M1021.889770508,0.708661437 L1021.889770508,0.708661437 Z" stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
+     <path d="M354.330718994,177.874008179 L354.330718994,177.874008179 Z" stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
     </g>
-    <g transform="matrix(1,0,0,1,-33.307083,1087.0865)" v:mID="29">
+    <g transform="matrix(1,0,0,1,-121.88976,289.8425)" v:mID="29">
      <title>Dynamic connector.29</title>
-     <path d="M1113.216430664,-2.171338797 L1118.97644043,0.708661437 L1113.216430664,3.588661671 M1113.216308594,-2.171338797 C1114.368408203,-0.443338633 1114.368408203,1.860661507 1113.216308594,3.588661671 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(1,0,0,1,0,0)"/>
-     <path d="M1021.889770508,0.708661437 L1118.97644043,0.708661437 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
+     <path d="M445.657348633,174.994018555 L451.417327881,177.874008179 L445.657348633,180.753997803 M445.657348633,174.994018555 C446.809356689,176.722000122 446.809356689,179.026016235 445.657348633,180.753997803 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(1,0,0,1,0,0)"/>
+     <path d="M354.330718994,177.874008179 L451.417327881,177.874008179 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
     </g>
-    <g transform="matrix(1,0,0,1,-33.307083,1087.0865)" v:mID="30">
+    <g transform="matrix(1,0,0,1,-121.88976,289.8425)" v:mID="30">
      <title>Dynamic connector.30</title>
-     <path d="M1016.129760742,-2.171338797 L1021.889770508,0.708661437 L1016.129760742,3.588661671 M1016.129760742,-2.171338797 C1017.281738281,-0.443338633 1017.281738281,1.860661507 1016.129760742,3.588661671 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(-1,0,0,-1,2043.7795,1.4173229)"/>
-     <path d="M1118.97644043,0.708661437 L1021.889770508,0.708661437 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
+     <path d="M348.570709229,174.994018555 L354.330718994,177.874008179 L348.570709229,180.753997803 M348.570709229,174.994018555 C349.722717285,176.722000122 349.722717285,179.026016235 348.570709229,180.753997803 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(-1,0,0,-1,708.66144,355.74802)"/>
+     <path d="M451.417327881,177.874008179 L354.330718994,177.874008179 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
     </g>
-    <g transform="matrix(1,0,0,1,-33.307083,1012.6772)" v:mID="31">
+    <g transform="matrix(1,0,0,1,-121.88976,215.43307)" v:mID="31">
      <title>Dynamic connector.31</title>
-     <path d="M1113.216430664,-2.171338797 L1118.97644043,0.708661437 L1113.216430664,3.588661671 M1113.216308594,-2.171338797 C1114.368408203,-0.443338633 1114.368408203,1.860661507 1113.216308594,3.588661671 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(1,0,0,1,0,0)"/>
-     <path d="M1021.889770508,0.708661437 L1118.97644043,0.708661437 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
+     <path d="M445.657348633,174.994018555 L451.417327881,177.874008179 L445.657348633,180.753997803 M445.657348633,174.994018555 C446.809356689,176.722000122 446.809356689,179.026016235 445.657348633,180.753997803 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(1,0,0,1,0,0)"/>
+     <path d="M354.330718994,177.874008179 L451.417327881,177.874008179 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
     </g>
-    <g transform="matrix(1,0,0,1,-33.307083,1012.6772)" v:mID="32">
+    <g transform="matrix(1,0,0,1,-121.88976,215.43307)" v:mID="32">
      <title>Dynamic connector.32</title>
-     <path d="M1016.129760742,-2.171338797 L1021.889770508,0.708661437 L1016.129760742,3.588661671 M1016.129760742,-2.171338797 C1017.281738281,-0.443338633 1017.281738281,1.860661507 1016.129760742,3.588661671 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(-1,0,0,-1,2043.7795,1.4173229)"/>
-     <path d="M1118.97644043,0.708661437 L1021.889770508,0.708661437 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
+     <path d="M348.570709229,174.994018555 L354.330718994,177.874008179 L348.570709229,180.753997803 M348.570709229,174.994018555 C349.722717285,176.722000122 349.722717285,179.026016235 348.570709229,180.753997803 " stroke="#000000" stroke-width="0" fill="#000000"  fill-rule="evenodd" transform="matrix(-1,0,0,-1,708.66144,355.74802)"/>
+     <path d="M451.417327881,177.874008179 L354.330718994,177.874008179 " stroke="#000000" stroke-width="1.4173229" stroke-linecap="round" fill="none"/>
     </g>
    </g>
   </g>
  </g>
- <style type="text/css"><![CDATA[ .TextStyle0 {font-family:Times New Roman;font-size:8.248819px;} ]]></style>
+ <style type="text/css"><![CDATA[ .TextStyle0 {font-family:Times New Roman;font-size:7.5614176px;} ]]></style>
 </svg>
