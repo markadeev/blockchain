@@ -6,6 +6,7 @@ A simplified blockchain learning project
 git clone https://github.com/markadeev/blockchain  
 cd blockchain  
 make  
+```
 
 ## Usage
 Edit main.cpp
