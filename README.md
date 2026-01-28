@@ -1,5 +1,21 @@
 # LearnChain
-A simplified blockchain learning project
+A simplified blockchain learning project.
+
+Modeled after Bitcoin. 
+Networking is simplified to interactions between objects.
+You can create wallets, nodes and miners.
+
+A wallet creates a transaction using its UTXO
+and submits it to its connected node.
+The node verifies it and broadcasts it to its respective peer nodes.
+
+Each node tracks its own local utxoset, mempool and blockchain.
+
+A miner is a node's subclass.
+It takes transactions from its mempool, 
+builds the block, mines the block, and broadcasts it to its peer nodes.
+
+Peer nodes verify the block and broadcast it to their respective nodes.
 
 ## Installation
 ```bash
@@ -44,5 +60,8 @@ node1.printBlockchain();
 
 ## Features
 
+## Contributing
+Pull requests are welcome.
+
 ## License
-Open-source
+Open-source.
