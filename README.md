@@ -18,7 +18,7 @@ Each node tracks its own local utxoset, mempool and blockchain.
 
 A miner is a node's subclass. It takes transactions from its mempool, builds the block, mines the block, and broadcasts it to its peer nodes.
 
-Peer nodes verify the block and broadcast it to their respective nodes.
+Peer nodes verify the block and broadcast it to their respective peer nodes.
 
 ![Architecture diagram](architecture.svg)
 
@@ -69,4 +69,4 @@ node1.printBlockchain();
 Pull requests are welcome.
 
 ## License
-Open-source.
+[MIT](https://choosealicense.com/licenses/mit/)
