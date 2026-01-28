@@ -2,9 +2,9 @@
 Blockchain learning project
 
 ## Installation
-git clone https://github.com/markadeev/blockchain
-cd blockchain
-make
+git clone https://github.com/markadeev/blockchain  
+cd blockchain  
+make  
 
 ## Usage
 Edit main.cpp
