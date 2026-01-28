@@ -31,7 +31,7 @@ make
 
 ## Usage
 Edit main.cpp
-```c++
+```cpp
 // create node
 Node node1;
 Node node2;
