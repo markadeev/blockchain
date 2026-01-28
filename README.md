@@ -1,5 +1,5 @@
-# Project Name
-Blockchain learning project
+# LearnChain
+A simplified blockchain learning project
 
 ## Installation
 git clone https://github.com/markadeev/blockchain  
