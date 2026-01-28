@@ -1,4 +1,4 @@
-## Project Name
+# Project Name
 Blockchain learning project
 
 ## Installation
