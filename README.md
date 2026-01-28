@@ -1,10 +1,10 @@
 # LearnChain
 A simplified blockchain learning project.
 
-Modeled after Bitcoin.
-UTXO-based transaction model.
-Networking is simplified to interactions between objects.
-You can create wallets, nodes and miners, send transactions and mine blocks.
+Modeled after Bitcoin.  
+UTXO-based transaction model.  
+Networking is simplified to interactions between objects.  
+You can create wallets, nodes and miners, send transactions and mine blocks.  
 
 Coins are created in two ways: 
 - each node's blockchain has a genesis block with a foundation transaction.
