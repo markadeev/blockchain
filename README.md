@@ -30,7 +30,7 @@ make
 ```
 
 ## Usage
-Edit main.cpp
+To create objects and interact between them, open and edit src/main.cpp
 ```cpp
 // create node
 Node node1;
