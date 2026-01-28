@@ -1,18 +1,19 @@
 # LearnChain
 A simplified blockchain learning project.
 
-Modeled after Bitcoin. 
+Modeled after Bitcoin.
+UTXO-based transaction model.
 Networking is simplified to interactions between objects.
-You can create wallets, nodes and miners.
+You can create wallets, nodes and miners, send transactions and mine blocks.
 
-Coins are created two ways: 
-- each genesis block has a transfer of a certain FOUNDATION_AMOUNT to the foundation wallet.
-- during mining, miners add coinbase transaction with a MINING_REWARD to their minerWallet.
+Coins are created in two ways: 
+- each node's blockchain has a genesis block with a foundation transaction.
+- miners add mining reward to their minerWallet.
 
 A wallet updates the list of its UTXOs from the connected node's utxoset.
-It creates transaction using its UTXO and submits it to the connected node.
+It creates a transaction and submits it to the connected node.
 
-The node verifies it and broadcasts it to its respective peer nodes.
+That node verifies and broadcasts it to its respective peer nodes.
 
 Each node tracks its own local utxoset, mempool and blockchain.
 
@@ -62,8 +63,6 @@ miner1.minerBroadcastBlock();
 // select a node and print it's blockchain
 node1.printBlockchain();
 ```
-
-## Features
 
 ## Contributing
 Pull requests are welcome.
