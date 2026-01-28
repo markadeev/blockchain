@@ -63,7 +63,63 @@ miner1.minerBroadcastBlock();
 // select a node and print it's blockchain
 node1.printBlockchain();
 ```
+##Example output
+```text
+Blockchain:
+Block 0
 
+| prevBlockHash: 0 |
+| timestamp: 2026-01-28 18:40:21 |
+| nonce: 0 |
+
+| TxId: a065628ab5835464126db2995d9790eb63c518508106af716edf3acd369d2bf6 |
+
+| txout.amount: 1000 |
+| txout.publicKey:
+-----BEGIN PUBLIC KEY-----
+MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEbqJNTPeXHOdqKbpFZwWjDyankHVx/TEO
+tu2eMthSwBCHIHx0XiiSo3Jvyx2X/DnQOs9U3TNl2yQQmwfBaMlGsQ==
+-----END PUBLIC KEY-----
+
+
+Block 1
+
+| prevBlockHash: 5c09649e3afddd091fd1a7aaa444e82358731c09e5c16bc6ad8a2f2ef13fab8b |
+| timestamp: 2026-01-28 18:40:21 |
+| nonce: 2250 |
+
+| TxId: 90a45627d91b2336b7889a958ddb6a011de85a69fe6bf3bd973ca7a83e972300 |
+
+| txin.prevTxId: a065628ab5835464126db2995d9790eb63c518508106af716edf3acd369d2bf6 |
+| txin.prevTxIndex: 0 |
+
+| txout.amount: 100 |
+| txout.publicKey:
+-----BEGIN PUBLIC KEY-----
+MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAExJm2zpmCkuKvzD52DOtMWf6KDIN4n4lN
+ws9AJxpNP2g7M9uN/eVKUOevxxhSUk4nUOzFbTOtttieiiUJrJDKqg==
+-----END PUBLIC KEY-----
+
+| txout.amount: 900 |
+| txout.publicKey:
+-----BEGIN PUBLIC KEY-----
+MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEbqJNTPeXHOdqKbpFZwWjDyankHVx/TEO
+tu2eMthSwBCHIHx0XiiSo3Jvyx2X/DnQOs9U3TNl2yQQmwfBaMlGsQ==
+-----END PUBLIC KEY-----
+
+
+| TxId: a0db7ceeb4829ae9cd8d06590ab9bbdc67f2d111eff7ee105a0db44fcafa59db |
+
+| txin.prevTxId: 0 |
+| txin.prevTxIndex: 0 |
+
+| txout.amount: 50 |
+| txout.publicKey:
+-----BEGIN PUBLIC KEY-----
+MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAElEAgfx58VHDFjchpyU6KjLnnxjsOntxv
+WbimTt9AmU3bWsOYqMEWIywQWYRsxOv40oyZjC0ONl6NzrduiY+OlQ==
+-----END PUBLIC KEY-----
+```
 ## Contributing
 Pull requests are welcome.
 
