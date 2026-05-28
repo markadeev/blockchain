@@ -1,5 +1,5 @@
 # LearnChain
-A simplified blockchain learning project.
+A simplified blockchain project.
 
 - Modeled after Bitcoin.  
 - UTXO-based transaction model.  
